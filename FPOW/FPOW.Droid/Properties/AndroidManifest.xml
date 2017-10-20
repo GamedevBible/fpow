@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="FPOW.Droid.FPOW.Droid" android:versionCode="1" android:versionName="1.0">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.biblegamedev.fpow" android:versionCode="1" android:versionName="1.0">
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
   <uses-sdk android:minSdkVersion="16" />
-  <application android:label="FPOW.Droid"></application>
+  <application android:label="@string/ApplicationName"></application>
 </manifest>
