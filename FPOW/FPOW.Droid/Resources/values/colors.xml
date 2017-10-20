@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+
+  <color name="dark_gray">#484848</color>
+  <color name="light_gray">#8e8e8e</color>
+  <color name="lighter_gray">#aeaeae</color>
+  <color name="shadow_gray">#d6d6d6</color>
+  <color name="fpow_white">#ffffff</color>
+  <color name="fpow_green">#00c853</color>
+  <color name="fpow_dark_green">#009624</color>
+  <color name="mercury">#e6e6e6</color>
+  <color name="mercury_transparent">#60E6E6E6</color>
+  <color name="black_transparent">#50000000</color>
+  <color name="transparent">#00000000</color>
+  <color name="good_answer">#00E676</color>
+  <color name="bad_answer">#F44336</color>
+  
+</resources>

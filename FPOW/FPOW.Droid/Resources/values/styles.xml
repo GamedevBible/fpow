@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/fpow_green</item>
+        <item name="colorPrimaryDark">@color/fpow_dark_green</item>
+        <item name="colorAccent">@color/fpow_green</item>
+        <item name="colorButtonNormal">@color/transparent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowContentTransitions">true</item>
+        <!--<item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>-->
+        <!--<item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>-->
+    </style>
+
+    <style name="AppTheme.Main">
+        <item name="android:windowTranslucentStatus">false</item>
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+    </style>
+  
+    <!--style name="AlertDialogTheme" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/bm_blue</item>
+        <item name="colorPrimaryDark">@color/bm_dark_blue</item>
+        <item name="colorAccent">@color/bm_blue</item>
+    </style-->
+
+  <!--style name="ActivitySplash" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:windowBackground">@drawable/splash_background</item>
+    <item name="android:windowFullscreen">true</item>
+  </style-->
+
+  <!--style name="ProgressDialogTheme" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+    <item name="colorPrimary">@color/bm_blue</item>
+    <item name="colorPrimaryDark">@color/bm_dark_blue</item>
+    <item name="colorAccent">@color/bm_blue</item>
+    <item name="android:windowBackground">@color/transparent</item>
+  </style-->
+</resources>

@@ -4,7 +4,7 @@ using Android.OS;
 
 namespace FPOW.Droid
 {
-    [Activity(Label = "FPOW.Droid", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "@string/ApplicationName", Theme = "@style/AppTheme.Main", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)
