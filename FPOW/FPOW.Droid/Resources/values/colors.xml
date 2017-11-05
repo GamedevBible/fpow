@@ -2,10 +2,11 @@
 <resources>
 
   <color name="dark_gray">#484848</color>
+  <color name="white">#ffffff</color>
   <color name="light_gray">#8e8e8e</color>
   <color name="lighter_gray">#aeaeae</color>
   <color name="shadow_gray">#d6d6d6</color>
-  <color name="fpow_white">#ffffff</color>
+  <color name="fpow_white">#00c853</color>
   <color name="fpow_green">#00c853</color>
   <color name="fpow_dark_green">#009624</color>
   <color name="mercury">#e6e6e6</color>
