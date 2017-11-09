@@ -19,8 +19,8 @@
       <android.support.v7.widget.AppCompatImageButton
             android:background="?attr/selectableItemBackground"
             android:layout_margin="5dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/callButton"
             style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
             app:srcCompat="@drawable/comment_question_outline"/>
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:ellipsize="end"
             android:gravity="center"
             android:id="@+id/level"
@@ -48,8 +48,8 @@
       <android.support.v7.widget.AppCompatImageButton
             android:background="?attr/selectableItemBackground"
             android:layout_margin="5dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/peopleButton"
             style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
             app:srcCompat="@drawable/settings"/>
@@ -72,14 +72,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
       <ImageView
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_margin="6dp"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_margin="10dp"
         android:background="@color/dark_gray"/>
         <ImageView
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_margin="6dp"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_margin="10dp"
         android:background="@color/dark_gray"/>    
     </LinearLayout>
     <LinearLayout
@@ -87,14 +87,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
       <ImageView
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_margin="6dp"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_margin="10dp"
         android:background="@color/dark_gray"/>
         <ImageView
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_margin="6dp"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_margin="10dp"
         android:background="@color/dark_gray"/>    
     </LinearLayout>
   </LinearLayout>
