@@ -106,6 +106,58 @@
       android:gravity="center_horizontal"
       android:layout_weight="1"
       android:id="@+id/buttonsLayout">
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:orientation="horizontal">
+      <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_margin="5dp"
+         android:text="Б"
+         android:id="@+id/b1"
+         style="@style/Widget.AppCompat.Button.Colored"/>
+      <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_margin="5dp"
+         android:text="И"
+         android:id="@+id/b2"
+         style="@style/Widget.AppCompat.Button.Colored"/>
+      <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_margin="5dp"
+         android:text="Б"
+         android:id="@+id/b3"
+         style="@style/Widget.AppCompat.Button.Colored"
+         android:ems="1" />
+      <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_margin="5dp"
+         android:text="Л"
+         android:id="@+id/b4"
+         style="@style/Widget.AppCompat.Button.Colored"
+         android:ems="1" />
+      <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_margin="5dp"
+         android:text="И"
+         android:id="@+id/b5"
+         style="@style/Widget.AppCompat.Button.Colored"
+         android:ems="1" />
+      <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_margin="5dp"
+         android:text="Я"
+         android:id="@+id/b6"
+         style="@style/Widget.AppCompat.Button.Colored"
+         android:ems="1" />
+    </LinearLayout>
     <!--Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
