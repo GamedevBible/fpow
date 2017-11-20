@@ -170,6 +170,16 @@
   <ItemGroup>
     <Folder Include="Resources\layout-xlarge\" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\button_background.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\field_background.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
