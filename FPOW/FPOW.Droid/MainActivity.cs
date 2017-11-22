@@ -1,9 +1,13 @@
 ﻿using Android.App;
+using Android.Content.Res;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using Java.Util;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace FPOW.Droid
 {
@@ -76,9 +80,12 @@ namespace FPOW.Droid
         private ImageView _image3View;
         private ImageView _image4View;
 
+        private Locales _currentLocale;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+            ApplyCulture();
             SetContentView (Resource.Layout.main);
 
             InitViews();
@@ -153,10 +160,67 @@ namespace FPOW.Droid
             _word8button = FindViewById<Button>(Resource.Id.word8button);
             _word9button = FindViewById<Button>(Resource.Id.word9button);
 
-            // Test
-            var word = "HELLO!";
-            var res = GameHelper.GetLettersString(word, Locales.English);
-            var a = res;
+            var currentLanguage = Locale.Default.Language;
+
+            _currentLocale = currentLanguage == "es" ? Locales.Spain : currentLanguage == "ru" ? Locales.Russian : Locales.English;
+        }
+
+        private void ApplyCulture()
+        {
+            var listOfRussianLocales = new List<Locale>
+            {
+                new Locale("ru"),
+                new Locale("be"),
+                new Locale("uk"),
+                new Locale("az"),
+                new Locale("hy"),
+                new Locale("kk"),
+                new Locale("ky"),
+                new Locale("tt"),
+                new Locale("uz")
+            };
+
+            var currentLocale = Locale.Default;
+
+            if (listOfRussianLocales.Any(t => t.Language == currentLocale.Language))
+            {
+                var newLocale = new Locale("ru");
+
+                Locale.Default = newLocale;
+                var config = new Configuration { Locale = newLocale };
+                BaseContext.Resources.UpdateConfiguration(config, BaseContext.Resources.DisplayMetrics);
+            }
+
+            var spanishLocale = new Locale("es");
+
+            if (currentLocale.Language == spanishLocale.Language)
+            {
+                Locale.Default = spanishLocale;
+                var config = new Configuration { Locale = spanishLocale };
+                BaseContext.Resources.UpdateConfiguration(config, BaseContext.Resources.DisplayMetrics);
+            }
+        }
+
+        private void InstallWord(string word)
+        {
+            var newWord = GameHelper.GetLettersString(word, _currentLocale);
+
+            _variant1Button.Text = newWord[0].ToString();
+            _variant2Button.Text = newWord[1].ToString();
+            _variant3Button.Text = newWord[2].ToString();
+            _variant4Button.Text = newWord[3].ToString();
+            _variant5Button.Text = newWord[4].ToString();
+            _variant6Button.Text = newWord[5].ToString();
+            _variant7Button.Text = newWord[6].ToString();
+            _variant8Button.Text = newWord[7].ToString();
+            _variant9Button.Text = newWord[8].ToString();
+            _variant10Button.Text = newWord[9].ToString();
+            _variant11Button.Text = newWord[10].ToString();
+            _variant12Button.Text = newWord[11].ToString();
+            _variant13Button.Text = newWord[12].ToString();
+            _variant14Button.Text = newWord[13].ToString();
+            _variant15Button.Text = newWord[14].ToString();
+            _variant16Button.Text = newWord[15].ToString();
         }
 
         private void ApplyWordVisibility(int wordLength)
