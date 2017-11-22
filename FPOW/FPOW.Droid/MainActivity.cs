@@ -152,6 +152,11 @@ namespace FPOW.Droid
             _word7button = FindViewById<Button>(Resource.Id.word7button);
             _word8button = FindViewById<Button>(Resource.Id.word8button);
             _word9button = FindViewById<Button>(Resource.Id.word9button);
+
+            // Test
+            var word = "HELLO!";
+            var res = GameHelper.GetLettersString(word, Locales.English);
+            var a = res;
         }
 
         private void ApplyWordVisibility(int wordLength)
@@ -169,20 +174,84 @@ namespace FPOW.Droid
                         _word9layout.Visibility = ViewStates.Gone;
                     break;
                 case 2:
+                    _word2layout.Visibility = ViewStates.Visible;
+                        _word3layout.Visibility =
+                        _word4layout.Visibility =
+                        _word5layout.Visibility =
+                        _word6layout.Visibility =
+                        _word7layout.Visibility =
+                        _word8layout.Visibility =
+                        _word9layout.Visibility = ViewStates.Gone;
                     break;
                 case 3:
+                    _word2layout.Visibility = 
+                    _word3layout.Visibility = ViewStates.Visible;
+                    _word4layout.Visibility =
+                    _word5layout.Visibility =
+                    _word6layout.Visibility =
+                    _word7layout.Visibility =
+                    _word8layout.Visibility =
+                    _word9layout.Visibility = ViewStates.Gone;
                     break;
                 case 4:
+                    _word2layout.Visibility =
+                    _word3layout.Visibility = 
+                    _word4layout.Visibility = ViewStates.Visible;
+                    _word5layout.Visibility =
+                    _word6layout.Visibility =
+                    _word7layout.Visibility =
+                    _word8layout.Visibility =
+                    _word9layout.Visibility = ViewStates.Gone;
                     break;
                 case 5:
+                    _word2layout.Visibility =
+                    _word3layout.Visibility =
+                    _word4layout.Visibility =
+                    _word5layout.Visibility = ViewStates.Visible;
+                    _word6layout.Visibility =
+                    _word7layout.Visibility =
+                    _word8layout.Visibility =
+                    _word9layout.Visibility = ViewStates.Gone;
                     break;
                 case 6:
+                    _word2layout.Visibility =
+                    _word3layout.Visibility =
+                    _word4layout.Visibility =
+                    _word5layout.Visibility =
+                    _word6layout.Visibility = ViewStates.Visible;
+                    _word7layout.Visibility =
+                    _word8layout.Visibility =
+                    _word9layout.Visibility = ViewStates.Gone;
                     break;
                 case 7:
+                    _word2layout.Visibility =
+                    _word3layout.Visibility =
+                    _word4layout.Visibility =
+                    _word5layout.Visibility =
+                    _word6layout.Visibility =
+                    _word7layout.Visibility = ViewStates.Visible;
+                    _word8layout.Visibility =
+                    _word9layout.Visibility = ViewStates.Gone;
                     break;
                 case 8:
+                    _word2layout.Visibility =
+                    _word3layout.Visibility =
+                    _word4layout.Visibility =
+                    _word5layout.Visibility =
+                    _word6layout.Visibility =
+                    _word7layout.Visibility =
+                    _word8layout.Visibility = ViewStates.Visible;
+                    _word9layout.Visibility = ViewStates.Gone;
                     break;
                 case 9:
+                    _word2layout.Visibility =
+                    _word3layout.Visibility =
+                    _word4layout.Visibility =
+                    _word5layout.Visibility =
+                    _word6layout.Visibility =
+                    _word7layout.Visibility =
+                    _word8layout.Visibility =
+                    _word9layout.Visibility = ViewStates.Visible;
                     break;
             }
         }
