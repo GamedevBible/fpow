@@ -1,5 +1,5 @@
 ﻿using System;
-namespace FPOW.Droid
+namespace FPOW.Droid.GameClasses
 {
     public enum Locales
     {

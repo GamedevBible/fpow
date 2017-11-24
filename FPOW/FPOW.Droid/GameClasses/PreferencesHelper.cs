@@ -1,7 +1,7 @@
 using Android.Content;
 using Android.Preferences;
 
-namespace FPOW.Droid
+namespace FPOW.Droid.GameClasses
 {
     class PreferencesHelper
     {

@@ -7,15 +7,27 @@ using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using FPOW.Droid.GameClasses;
 using Java.Util;
 using System.Collections.Generic;
 using System.Linq;
+
+/* Перед обновлением:
+ * - Проверить сколько уровней, и если надо изменить константу
+ * - Нужно ли показывать "Что нового", если да, обновить диалог и разкомментировать флаг
+ * - Повысить версию
+ * - Аналитика Release
+ * - Добавить слова в Words во все методы
+ 
+     */
 
 namespace FPOW.Droid
 {
     [Activity(Label = "@string/ApplicationName", Theme = "@style/AppTheme.Main", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : AppCompatActivity
     {
+        private const int COUNT_OF_LEVELS = 10;
+
         private View _word1layout;
         private View _word2layout;
         private View _word3layout;
@@ -93,6 +105,7 @@ namespace FPOW.Droid
          3 = spanish*/
         private int _currentCultureID;
         private bool _needShowWhatsNew;
+        private string _currentWord;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -168,6 +181,46 @@ namespace FPOW.Droid
         private void CloseDialog(object sender, DialogClickEventArgs e)
         {
             ((Android.Support.V7.App.AlertDialog)sender).Dismiss();
+        }
+
+        private void InstallLevelAndStart()
+        {
+            if (_currentLevel == COUNT_OF_LEVELS)
+            {
+                ShowNoMoreLevelsDialog();
+                // TODO Need disable all buttons and images and hint
+                return;
+            }
+
+            _currentWord = _currentLocale == Locales.English 
+                    ? Words.GetEnglishWord(_currentLevel) 
+                    : _currentLocale == Locales.Russian 
+                        ? Words.GetRussianWord(_currentLevel) 
+                        : Words.GetSpanishWord(_currentLevel);
+
+            _level.Text = $"{_currentLevel} / {COUNT_OF_LEVELS}";
+
+            InstallImages();
+            InstallWord(_currentWord);
+        }
+
+        private void InstallImages()
+        {
+            // TODO
+        }
+
+        private void ShowNoMoreLevelsDialog()
+        {
+            // TODO Localize
+
+            var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.AlertDialogTheme)
+                    .SetTitle($"Версия {PackageManager.GetPackageInfo(PackageName, PackageInfoFlags.Configurations).VersionName}")
+                    .SetMessage("Что нового:" + "\n" + "- исправлены найденные ошибки в вопросах." + "\n" + "\n" + "Мы очень рады, что вы участвуете в нашей викторине! А мы будем делать наше приложение все более интересным для вас!")
+                    .SetPositiveButton("Закрыть", CloseDialog)
+                    .SetCancelable(false)
+                    .Create();
+
+            dialog.Show();
         }
 
         private void InitViews()
