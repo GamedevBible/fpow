@@ -116,6 +116,7 @@
   <ItemGroup>
     <Compile Include="GameHelper.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="PreferencesHelper.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

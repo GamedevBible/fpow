@@ -2576,6 +2576,9 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0700a0
 			public const int AlertDialog_AppCompat_Light = 2131165344;
 			
+			// aapt resource value: 0x7f070161
+			public const int AlertDialogTheme = 2131165537;
+			
 			// aapt resource value: 0x7f0700a1
 			public const int Animation_AppCompat_Dialog = 2131165345;
 			

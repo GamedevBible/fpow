@@ -17,11 +17,11 @@
         <!--<item name="android:windowTranslucentNavigation">true</item>-->
     </style>
   
-    <!--style name="AlertDialogTheme" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
-        <item name="colorPrimary">@color/bm_blue</item>
-        <item name="colorPrimaryDark">@color/bm_dark_blue</item>
-        <item name="colorAccent">@color/bm_blue</item>
-    </style-->
+    <style name="AlertDialogTheme" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/fpow_green</item>
+        <item name="colorPrimaryDark">@color/fpow_dark_green</item>
+        <item name="colorAccent">@color/fpow_green</item>
+    </style>
 
   <!--style name="ActivitySplash" parent="Theme.AppCompat.Light.NoActionBar">
     <item name="android:windowBackground">@drawable/splash_background</item>

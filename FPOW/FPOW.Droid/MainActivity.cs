@@ -1,4 +1,6 @@
 ﻿using Android.App;
+using Android.Content;
+using Android.Content.PM;
 using Android.Content.Res;
 using Android.OS;
 using Android.Support.V7.App;
@@ -81,14 +83,91 @@ namespace FPOW.Droid
         private ImageView _image4View;
 
         private Locales _currentLocale;
+        private int _currentLevel;
+        private bool _hintLocked;
+        private PreferencesHelper _preferencesHelper;
+
+        /*
+         1 = english
+         2 = russian
+         3 = spanish*/
+        private int _currentCultureID;
+        private bool _needShowWhatsNew;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+
+            if (bundle != null)
+            {
+                //_greetingsWasShowed = bundle.GetBoolean(nameof(_greetingsWasShowed));
+            }
+
+            _preferencesHelper = new PreferencesHelper();
+            _preferencesHelper.InitHepler(this);
+
+            _currentLevel = _preferencesHelper.GetCurrentLevel();
+
+            _needShowWhatsNew = true;
+
+            if (_currentLevel == 0)
+            {
+                ShowGreetingsAlert();
+                _currentLevel = 1;
+                _preferencesHelper.PutCurrentLevel(this, _currentLevel);
+                _preferencesHelper.PutLastVersion(this, PackageManager.GetPackageInfo(PackageName, PackageInfoFlags.Configurations).VersionName);
+            }
+            else
+            if (!_preferencesHelper.GetLastVersion().Equals(PackageManager.GetPackageInfo(PackageName, PackageInfoFlags.Configurations).VersionName))
+            {
+                if (_needShowWhatsNew)
+                    ShowWhatsNewAlert();
+                _preferencesHelper.PutLastVersion(this, PackageManager.GetPackageInfo(PackageName, PackageInfoFlags.Configurations).VersionName);
+            }
+
             ApplyCulture();
             SetContentView (Resource.Layout.main);
 
             InitViews();
+        }
+
+        private void ShowWhatsNewAlert()
+        {
+            var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.AlertDialogTheme)
+                    .SetTitle($"Версия {PackageManager.GetPackageInfo(PackageName, PackageInfoFlags.Configurations).VersionName}")
+                    .SetMessage("Что нового:" + "\n" + "- исправлены найденные ошибки в вопросах." + "\n" + "\n" + "Мы очень рады, что вы участвуете в нашей викторине! А мы будем делать наше приложение все более интересным для вас!")
+                    .SetPositiveButton("Закрыть", CloseDialog)
+                    .SetCancelable(false)
+                    .Create();
+
+            dialog.Show();
+        }
+
+        private void ShowGreetingsAlert()
+        {
+            /*var locale = Locale.Default.DisplayLanguage;
+
+            var title = locale == "en" || locale == "en-US" || locale == "English" ? "Welcome!" : "Добро пожаловать!";
+
+            var message = locale == "en" || locale == "en-US" || locale == "English"
+                ? "Dear friend! This time our app supports only russian language. We are sorry for that."
+                : "Дорогой друг! Мы очень рады, что ты присоединился к нашему приложению! Тебя ждут более 3000 вопросов! Желаем тебе успехов!";
+
+            var closeButton = locale == "en" || locale == "en-US" || locale == "English" ? "Close" : "Закрыть";*/
+
+            var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.AlertDialogTheme)
+                    .SetTitle("")
+                    .SetMessage("")
+                    .SetPositiveButton("cls", CloseDialog)
+                    .SetCancelable(false)
+                    .Create();
+
+            dialog.Show();
+        }
+
+        private void CloseDialog(object sender, DialogClickEventArgs e)
+        {
+            ((Android.Support.V7.App.AlertDialog)sender).Dismiss();
         }
 
         private void InitViews()
@@ -167,6 +246,7 @@ namespace FPOW.Droid
 
         private void ApplyCulture()
         {
+            // Set default culture by phone culture
             var listOfRussianLocales = new List<Locale>
             {
                 new Locale("ru"),
