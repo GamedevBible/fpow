@@ -2,6 +2,7 @@
 using Android.Content;
 using Android.Content.PM;
 using Android.Content.Res;
+using Android.Media;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
@@ -11,6 +12,7 @@ using FPOW.Droid.GameClasses;
 using Java.Util;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 /* Перед обновлением:
  * - Проверить сколько уровней, и если надо изменить константу
@@ -142,6 +144,8 @@ namespace FPOW.Droid
             SetContentView (Resource.Layout.main);
 
             InitViews();
+
+            InstallLevelAndStart();
         }
 
         private void ShowWhatsNewAlert()
@@ -206,7 +210,41 @@ namespace FPOW.Droid
 
         private void InstallImages()
         {
-            // TODO
+            int[] images = new int[] { };
+
+            switch (_currentLevel)
+            {
+                
+                case 1:
+                    images = new int[] { Resource.Drawable.Icon,
+                        Resource.Drawable.Icon,
+                        Resource.Drawable.Icon,
+                        Resource.Drawable.Icon };
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    break;
+                case 10:
+                    break;
+            }
+
+            _image1View.SetImageResource(images[0]);
+            _image2View.SetImageResource(images[1]);
+            _image3View.SetImageResource(images[2]);
+            _image4View.SetImageResource(images[3]);
         }
 
         private void ShowNoMoreLevelsDialog()
@@ -268,6 +306,23 @@ namespace FPOW.Droid
             _variant15Layout = FindViewById<View>(Resource.Id.variant15Layout);
             _variant16Layout = FindViewById<View>(Resource.Id.variant16Layout);
 
+            _variant1Layout.Click += OnVariantLayoutClicked;
+            _variant2Layout.Click += OnVariantLayoutClicked;
+            _variant3Layout.Click += OnVariantLayoutClicked;
+            _variant4Layout.Click += OnVariantLayoutClicked;
+            _variant5Layout.Click += OnVariantLayoutClicked;
+            _variant6Layout.Click += OnVariantLayoutClicked;
+            _variant7Layout.Click += OnVariantLayoutClicked;
+            _variant8Layout.Click += OnVariantLayoutClicked;
+            _variant9Layout.Click += OnVariantLayoutClicked;
+            _variant10Layout.Click += OnVariantLayoutClicked;
+            _variant11Layout.Click += OnVariantLayoutClicked;
+            _variant12Layout.Click += OnVariantLayoutClicked;
+            _variant13Layout.Click += OnVariantLayoutClicked;
+            _variant14Layout.Click += OnVariantLayoutClicked;
+            _variant15Layout.Click += OnVariantLayoutClicked;
+            _variant16Layout.Click += OnVariantLayoutClicked;
+
             _wordRemoveLayout = FindViewById<View>(Resource.Id.word_remove_layout);
             _wordRemoveButton = FindViewById<Button>(Resource.Id.word_remove_button);
             _wordRemoveButton.Text = "<<";
@@ -295,6 +350,45 @@ namespace FPOW.Droid
             var currentLanguage = Locale.Default.Language;
 
             _currentLocale = currentLanguage == "es" ? Locales.Spain : currentLanguage == "ru" ? Locales.Russian : Locales.English;
+        }
+
+        private void OnVariantLayoutClicked(object sender, EventArgs e)
+        {
+            switch (((View)sender).Id)
+            {
+                case Resource.Id.variant1Layout:
+                    break;
+                case Resource.Id.variant2Layout:
+                    break;
+                case Resource.Id.variant3Layout:
+                    break;
+                case Resource.Id.variant4Layout:
+                    break;
+                case Resource.Id.variant5Layout:
+                    break;
+                case Resource.Id.variant6Layout:
+                    break;
+                case Resource.Id.variant7Layout:
+                    break;
+                case Resource.Id.variant8Layout:
+                    break;
+                case Resource.Id.variant9Layout:
+                    break;
+                case Resource.Id.variant10Layout:
+                    break;
+                case Resource.Id.variant11Layout:
+                    break;
+                case Resource.Id.variant12Layout:
+                    break;
+                case Resource.Id.variant13Layout:
+                    break;
+                case Resource.Id.variant14Layout:
+                    break;
+                case Resource.Id.variant15Layout:
+                    break;
+                case Resource.Id.variant16Layout:
+                    break;
+            }
         }
 
         private void ApplyCulture()
