@@ -98,8 +98,9 @@ namespace FPOW.Droid
 
         private Locales _currentLocale;
         private int _currentLevel;
-        private bool _hintLocked;
         private PreferencesHelper _preferencesHelper;
+        private int[] _variantsIntArray;
+        private string[] _variantsStringArray;
 
         /*
          1 = english
@@ -204,8 +205,22 @@ namespace FPOW.Droid
 
             _level.Text = $"{_currentLevel} / {COUNT_OF_LEVELS}";
 
+            ClearWordArea();
             InstallImages();
             InstallWord(_currentWord);
+        }
+
+        private void ClearWordArea()
+        {
+            _word1button.Text =
+                _word2button.Text =
+                _word3button.Text =
+                _word4button.Text =
+                _word5button.Text =
+                _word6button.Text =
+                _word7button.Text =
+                _word8button.Text =
+                _word9button.Text = string.Empty;
         }
 
         private void InstallImages()
@@ -357,38 +372,77 @@ namespace FPOW.Droid
             switch (((View)sender).Id)
             {
                 case Resource.Id.variant1Layout:
+                    _variant1Layout.Enabled = false;
+                    _variant1Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                    ProcessLetter(1, _variant1Button.Text);
+                    // TODO
                     break;
                 case Resource.Id.variant2Layout:
+                    _variant2Layout.Enabled = false;
+                    _variant2Button.SetBackgroundResource(Resource.Drawable.button_disabled);
                     break;
                 case Resource.Id.variant3Layout:
+                    _variant3Layout.Enabled = false;
+                    _variant3Button.SetBackgroundResource(Resource.Drawable.button_disabled);
                     break;
                 case Resource.Id.variant4Layout:
+                    _variant4Layout.Enabled = false;
+                    _variant4Button.SetBackgroundResource(Resource.Drawable.button_disabled);
                     break;
                 case Resource.Id.variant5Layout:
+                    _variant5Layout.Enabled = false;
+                    _variant5Button.SetBackgroundResource(Resource.Drawable.button_disabled);
                     break;
                 case Resource.Id.variant6Layout:
+                    _variant6Layout.Enabled = false;
+                    _variant6Button.SetBackgroundResource(Resource.Drawable.button_disabled);
                     break;
                 case Resource.Id.variant7Layout:
+                    _variant7Layout.Enabled = false;
+                    _variant7Button.SetBackgroundResource(Resource.Drawable.button_disabled);
                     break;
                 case Resource.Id.variant8Layout:
+                    _variant8Layout.Enabled = false;
+                    _variant8Button.SetBackgroundResource(Resource.Drawable.button_disabled);
                     break;
                 case Resource.Id.variant9Layout:
+                    _variant9Layout.Enabled = false;
+                    _variant9Button.SetBackgroundResource(Resource.Drawable.button_disabled);
                     break;
                 case Resource.Id.variant10Layout:
+                    _variant10Layout.Enabled = false;
+                    _variant10Button.SetBackgroundResource(Resource.Drawable.button_disabled);
                     break;
                 case Resource.Id.variant11Layout:
+                    _variant11Layout.Enabled = false;
+                    _variant11Button.SetBackgroundResource(Resource.Drawable.button_disabled);
                     break;
                 case Resource.Id.variant12Layout:
+                    _variant12Layout.Enabled = false;
+                    _variant12Button.SetBackgroundResource(Resource.Drawable.button_disabled);
                     break;
                 case Resource.Id.variant13Layout:
+                    _variant13Layout.Enabled = false;
+                    _variant13Button.SetBackgroundResource(Resource.Drawable.button_disabled);
                     break;
                 case Resource.Id.variant14Layout:
+                    _variant14Layout.Enabled = false;
+                    _variant14Button.SetBackgroundResource(Resource.Drawable.button_disabled);
                     break;
                 case Resource.Id.variant15Layout:
+                    _variant15Layout.Enabled = false;
+                    _variant15Button.SetBackgroundResource(Resource.Drawable.button_disabled);
                     break;
                 case Resource.Id.variant16Layout:
+                    _variant16Layout.Enabled = false;
+                    _variant16Button.SetBackgroundResource(Resource.Drawable.button_disabled);
                     break;
             }
+        }
+
+        private void ProcessLetter(int number, string letter)
+        {
+            // TODO
         }
 
         private void ApplyCulture()
