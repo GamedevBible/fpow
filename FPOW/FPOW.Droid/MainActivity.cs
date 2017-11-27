@@ -28,7 +28,7 @@ namespace FPOW.Droid
     [Activity(Label = "@string/ApplicationName", Theme = "@style/AppTheme.Main", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : AppCompatActivity
     {
-        private const int COUNT_OF_LEVELS = 10;
+        private const int COUNT_OF_LEVELS = 2;
 
         private View _word1layout;
         private View _word2layout;
@@ -190,10 +190,14 @@ namespace FPOW.Droid
 
         private void InstallLevelAndStart()
         {
-            if (_currentLevel == COUNT_OF_LEVELS)
+            if (_currentLevel > COUNT_OF_LEVELS)
             {
                 ShowNoMoreLevelsDialog();
+                ClearWordArea();
                 // TODO Need disable all buttons and images and hint
+                EnableAllButtons(false);
+                ApplyWordVisibility(9);
+                _variantsIntArray = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
                 return;
             }
 
@@ -205,8 +209,11 @@ namespace FPOW.Droid
 
             _level.Text = $"{_currentLevel} / {COUNT_OF_LEVELS}";
 
+            _variantsIntArray = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            EnableAllButtons();
             ClearWordArea();
             InstallImages();
+            ApplyWordVisibility(_currentWord.Length);
             InstallWord(_currentWord);
         }
 
@@ -256,10 +263,10 @@ namespace FPOW.Droid
                     break;
             }
 
-            _image1View.SetImageResource(images[0]);
+            /*_image1View.SetImageResource(images[0]);
             _image2View.SetImageResource(images[1]);
             _image3View.SetImageResource(images[2]);
-            _image4View.SetImageResource(images[3]);
+            _image4View.SetImageResource(images[3]);*/
         }
 
         private void ShowNoMoreLevelsDialog()
@@ -374,75 +381,306 @@ namespace FPOW.Droid
                 case Resource.Id.variant1Layout:
                     _variant1Layout.Enabled = false;
                     _variant1Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                    ProcessLetter(1, _variant1Button.Text);
+                    ProcessLetter(0, _variant1Button.Text);
                     // TODO
                     break;
                 case Resource.Id.variant2Layout:
                     _variant2Layout.Enabled = false;
                     _variant2Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                    ProcessLetter(1, _variant2Button.Text);
                     break;
                 case Resource.Id.variant3Layout:
                     _variant3Layout.Enabled = false;
                     _variant3Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                    ProcessLetter(2, _variant3Button.Text);
                     break;
                 case Resource.Id.variant4Layout:
                     _variant4Layout.Enabled = false;
                     _variant4Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                    ProcessLetter(3, _variant4Button.Text);
                     break;
                 case Resource.Id.variant5Layout:
                     _variant5Layout.Enabled = false;
                     _variant5Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                    ProcessLetter(4, _variant5Button.Text);
                     break;
                 case Resource.Id.variant6Layout:
                     _variant6Layout.Enabled = false;
                     _variant6Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                    ProcessLetter(5, _variant6Button.Text);
                     break;
                 case Resource.Id.variant7Layout:
                     _variant7Layout.Enabled = false;
                     _variant7Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                    ProcessLetter(6, _variant7Button.Text);
                     break;
                 case Resource.Id.variant8Layout:
                     _variant8Layout.Enabled = false;
                     _variant8Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                    ProcessLetter(7, _variant8Button.Text);
                     break;
                 case Resource.Id.variant9Layout:
                     _variant9Layout.Enabled = false;
                     _variant9Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                    ProcessLetter(8, _variant9Button.Text);
                     break;
                 case Resource.Id.variant10Layout:
                     _variant10Layout.Enabled = false;
                     _variant10Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                    ProcessLetter(9, _variant10Button.Text);
                     break;
                 case Resource.Id.variant11Layout:
                     _variant11Layout.Enabled = false;
                     _variant11Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                    ProcessLetter(10, _variant11Button.Text);
                     break;
                 case Resource.Id.variant12Layout:
                     _variant12Layout.Enabled = false;
                     _variant12Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                    ProcessLetter(11, _variant12Button.Text);
                     break;
                 case Resource.Id.variant13Layout:
                     _variant13Layout.Enabled = false;
                     _variant13Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                    ProcessLetter(12, _variant13Button.Text);
                     break;
                 case Resource.Id.variant14Layout:
                     _variant14Layout.Enabled = false;
                     _variant14Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                    ProcessLetter(13, _variant14Button.Text);
                     break;
                 case Resource.Id.variant15Layout:
                     _variant15Layout.Enabled = false;
                     _variant15Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                    ProcessLetter(14, _variant15Button.Text);
                     break;
                 case Resource.Id.variant16Layout:
                     _variant16Layout.Enabled = false;
                     _variant16Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                    ProcessLetter(15, _variant16Button.Text);
                     break;
             }
         }
 
         private void ProcessLetter(int number, string letter)
         {
-            // TODO
+            var max = _variantsIntArray.Max();
+
+            if (max == _currentWord.Length)
+                return;
+
+            switch (max)
+            {
+                case 9:
+                    return;
+                case 0:
+                    _variantsIntArray[number] = 1;
+                    _word1button.Text = letter;
+                    break;
+                case 1:
+                    _variantsIntArray[number] = 2;
+                    _word2button.Text = letter;
+
+                    if (_currentWord.Length == 2)
+                    {
+                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
+                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper())
+                            InstallNextWord();
+                        else
+                            SetButtonsWrong();
+                    }
+
+                    break;
+                case 2:
+                    _variantsIntArray[number] = 3;
+                    _word3button.Text = letter;
+
+                    if (_currentWord.Length == 3)
+                    {
+                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
+                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
+                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper())
+                            InstallNextWord();
+                        else
+                            SetButtonsWrong();
+                    }
+
+                    break;
+                case 3:
+                    _variantsIntArray[number] = 4;
+                    _word4button.Text = letter;
+
+                    if (_currentWord.Length == 4)
+                    {
+                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
+                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
+                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
+                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper())
+                            InstallNextWord();
+                        else
+                            SetButtonsWrong();
+                    }
+
+                    break;
+                case 4:
+                    _variantsIntArray[number] = 5;
+                    _word5button.Text = letter;
+
+                    if (_currentWord.Length == 5)
+                    {
+                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
+                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
+                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
+                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper() &&
+                        _currentWord[4].ToString().ToUpper() == _word5button.Text.ToUpper())
+                            InstallNextWord();
+                        else
+                            SetButtonsWrong();
+                    }
+
+                    break;
+                case 5:
+                    _variantsIntArray[number] = 6;
+                    _word6button.Text = letter;
+
+                    if (_currentWord.Length == 6)
+                    {
+                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
+                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
+                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
+                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper() &&
+                        _currentWord[4].ToString().ToUpper() == _word5button.Text.ToUpper() &&
+                        _currentWord[5].ToString().ToUpper() == _word6button.Text.ToUpper())
+                            InstallNextWord();
+                        else
+                            SetButtonsWrong();
+                    }
+
+                    break;
+                case 6:
+                    _variantsIntArray[number] = 7;
+                    _word7button.Text = letter;
+
+                    if (_currentWord.Length == 7)
+                    {
+                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
+                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
+                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
+                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper() &&
+                        _currentWord[4].ToString().ToUpper() == _word5button.Text.ToUpper() &&
+                        _currentWord[5].ToString().ToUpper() == _word6button.Text.ToUpper() &&
+                        _currentWord[6].ToString().ToUpper() == _word7button.Text.ToUpper())
+                            InstallNextWord();
+                        else
+                            SetButtonsWrong();
+                    }
+
+                    break;
+                case 7:
+                    _variantsIntArray[number] = 8;
+                    _word8button.Text = letter;
+
+                    if (_currentWord.Length == 8)
+                    {
+                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
+                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
+                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
+                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper() &&
+                        _currentWord[4].ToString().ToUpper() == _word5button.Text.ToUpper() &&
+                        _currentWord[5].ToString().ToUpper() == _word6button.Text.ToUpper() &&
+                        _currentWord[6].ToString().ToUpper() == _word7button.Text.ToUpper() &&
+                        _currentWord[7].ToString().ToUpper() == _word8button.Text.ToUpper())
+                            InstallNextWord();
+                        else
+                            SetButtonsWrong();
+                    }
+
+                    break;
+                case 8:
+                    _variantsIntArray[number] = 9;
+                    _word9button.Text = letter;
+
+                    if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
+                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
+                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
+                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper() &&
+                        _currentWord[4].ToString().ToUpper() == _word5button.Text.ToUpper() &&
+                        _currentWord[5].ToString().ToUpper() == _word6button.Text.ToUpper() &&
+                        _currentWord[6].ToString().ToUpper() == _word7button.Text.ToUpper() &&
+                        _currentWord[7].ToString().ToUpper() == _word8button.Text.ToUpper() &&
+                        _currentWord[8].ToString().ToUpper() == _word9button.Text.ToUpper())
+                        InstallNextWord();
+                    else
+                        SetButtonsWrong();
+
+                    break;
+            }
+        }
+
+        private void InstallNextWord()
+        {
+            var toast = Toast.MakeText(this, $"Верно! Это слово {_currentWord}!", ToastLength.Long);
+            toast.SetGravity(GravityFlags.Center, 0, 0);
+            toast.Show();
+
+            _currentLevel++;
+
+            _preferencesHelper.PutCurrentLevel(this, _currentLevel);
+
+            InstallLevelAndStart();
+        }
+
+        private void EnableAllButtons(bool enabled = true)
+        {
+            _variant1Layout.Enabled = _variant2Layout.Enabled = _variant3Layout.Enabled =
+                _variant4Layout.Enabled = _variant5Layout.Enabled = _variant6Layout.Enabled =
+                _variant7Layout.Enabled = _variant8Layout.Enabled = _variant9Layout.Enabled =
+                _variant10Layout.Enabled = _variant11Layout.Enabled = _variant12Layout.Enabled =
+                _variant13Layout.Enabled = _variant14Layout.Enabled = _variant15Layout.Enabled =
+                _variant16Layout.Enabled = enabled;
+
+            _variant1Button.SetBackgroundResource(enabled ? Resource.Drawable.button_background : Resource.Drawable.button_disabled);
+            _variant2Button.SetBackgroundResource(enabled ? Resource.Drawable.button_background : Resource.Drawable.button_disabled);
+            _variant3Button.SetBackgroundResource(enabled ? Resource.Drawable.button_background : Resource.Drawable.button_disabled);
+            _variant4Button.SetBackgroundResource(enabled ? Resource.Drawable.button_background : Resource.Drawable.button_disabled);
+            _variant5Button.SetBackgroundResource(enabled ? Resource.Drawable.button_background : Resource.Drawable.button_disabled);
+            _variant6Button.SetBackgroundResource(enabled ? Resource.Drawable.button_background : Resource.Drawable.button_disabled);
+            _variant7Button.SetBackgroundResource(enabled ? Resource.Drawable.button_background : Resource.Drawable.button_disabled);
+            _variant8Button.SetBackgroundResource(enabled ? Resource.Drawable.button_background : Resource.Drawable.button_disabled);
+            _variant9Button.SetBackgroundResource(enabled ? Resource.Drawable.button_background : Resource.Drawable.button_disabled);
+            _variant10Button.SetBackgroundResource(enabled ? Resource.Drawable.button_background : Resource.Drawable.button_disabled);
+            _variant11Button.SetBackgroundResource(enabled ? Resource.Drawable.button_background : Resource.Drawable.button_disabled);
+            _variant12Button.SetBackgroundResource(enabled ? Resource.Drawable.button_background : Resource.Drawable.button_disabled);
+            _variant13Button.SetBackgroundResource(enabled ? Resource.Drawable.button_background : Resource.Drawable.button_disabled);
+            _variant14Button.SetBackgroundResource(enabled ? Resource.Drawable.button_background : Resource.Drawable.button_disabled);
+            _variant15Button.SetBackgroundResource(enabled ? Resource.Drawable.button_background : Resource.Drawable.button_disabled);
+            _variant16Button.SetBackgroundResource(enabled ? Resource.Drawable.button_background : Resource.Drawable.button_disabled);
+        }
+
+        private void SetButtonsDefault()
+        {
+            _word1button.SetBackgroundResource(Resource.Drawable.field_background);
+            _word2button.SetBackgroundResource(Resource.Drawable.field_background);
+            _word3button.SetBackgroundResource(Resource.Drawable.field_background);
+            _word4button.SetBackgroundResource(Resource.Drawable.field_background);
+            _word5button.SetBackgroundResource(Resource.Drawable.field_background);
+            _word6button.SetBackgroundResource(Resource.Drawable.field_background);
+            _word7button.SetBackgroundResource(Resource.Drawable.field_background);
+            _word8button.SetBackgroundResource(Resource.Drawable.field_background);
+            _word9button.SetBackgroundResource(Resource.Drawable.field_background);
+        }
+
+        private void SetButtonsWrong()
+        {
+            _word1button.SetBackgroundResource(Resource.Drawable.button_wrong);
+            _word2button.SetBackgroundResource(Resource.Drawable.button_wrong);
+            _word3button.SetBackgroundResource(Resource.Drawable.button_wrong);
+            _word4button.SetBackgroundResource(Resource.Drawable.button_wrong);
+            _word5button.SetBackgroundResource(Resource.Drawable.button_wrong);
+            _word6button.SetBackgroundResource(Resource.Drawable.button_wrong);
+            _word7button.SetBackgroundResource(Resource.Drawable.button_wrong);
+            _word8button.SetBackgroundResource(Resource.Drawable.button_wrong);
+            _word9button.SetBackgroundResource(Resource.Drawable.button_wrong);
         }
 
         private void ApplyCulture()
