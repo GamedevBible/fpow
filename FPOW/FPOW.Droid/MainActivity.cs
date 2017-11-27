@@ -198,6 +198,14 @@ namespace FPOW.Droid
                 EnableAllButtons(false);
                 ApplyWordVisibility(9);
                 _variantsIntArray = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                _variant1Button.Text = _variant2Button.Text = _variant3Button.Text =
+                    _variant4Button.Text = _variant5Button.Text = _variant6Button.Text =
+                    _variant1Button.Text = _variant1Button.Text = _variant1Button.Text =
+                    _variant7Button.Text = _variant8Button.Text = _variant9Button.Text =
+                    _variant10Button.Text = _variant11Button.Text = _variant12Button.Text =
+                    _variant13Button.Text = _variant14Button.Text = _variant15Button.Text =
+                    _variant16Button.Text = string.Empty;
+                _level.Text = $"{COUNT_OF_LEVELS} / {COUNT_OF_LEVELS}";
                 return;
             }
 
@@ -345,6 +353,8 @@ namespace FPOW.Droid
             _variant15Layout.Click += OnVariantLayoutClicked;
             _variant16Layout.Click += OnVariantLayoutClicked;
 
+            _wordRemoveLayout.Click += OnRemoveLayoutClicked;
+
             _wordRemoveLayout = FindViewById<View>(Resource.Id.word_remove_layout);
             _wordRemoveButton = FindViewById<Button>(Resource.Id.word_remove_button);
             _wordRemoveButton.Text = "<<";
@@ -372,6 +382,162 @@ namespace FPOW.Droid
             var currentLanguage = Locale.Default.Language;
 
             _currentLocale = currentLanguage == "es" ? Locales.Spain : currentLanguage == "ru" ? Locales.Russian : Locales.English;
+        }
+
+        private void OnRemoveLayoutClicked(object sender, EventArgs e)
+        {
+            SetButtonsDefault();
+
+            var max = _variantsIntArray.Max();
+
+            if (max == 0)
+                return;
+
+            /*switch (max)
+            {
+                case 0:
+                    return;
+                case 1:
+                    _word1button.Text = string.Empty;
+                    _variantsIntArray[number] = 2;
+                    _word2button.Text = letter;
+
+                    if (_currentWord.Length == 2)
+                    {
+                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
+                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper())
+                            InstallNextWord();
+                        else
+                            SetButtonsWrong();
+                    }
+
+                    break;
+                case 2:
+                    _variantsIntArray[number] = 3;
+                    _word3button.Text = letter;
+
+                    if (_currentWord.Length == 3)
+                    {
+                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
+                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
+                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper())
+                            InstallNextWord();
+                        else
+                            SetButtonsWrong();
+                    }
+
+                    break;
+                case 3:
+                    _variantsIntArray[number] = 4;
+                    _word4button.Text = letter;
+
+                    if (_currentWord.Length == 4)
+                    {
+                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
+                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
+                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
+                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper())
+                            InstallNextWord();
+                        else
+                            SetButtonsWrong();
+                    }
+
+                    break;
+                case 4:
+                    _variantsIntArray[number] = 5;
+                    _word5button.Text = letter;
+
+                    if (_currentWord.Length == 5)
+                    {
+                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
+                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
+                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
+                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper() &&
+                        _currentWord[4].ToString().ToUpper() == _word5button.Text.ToUpper())
+                            InstallNextWord();
+                        else
+                            SetButtonsWrong();
+                    }
+
+                    break;
+                case 5:
+                    _variantsIntArray[number] = 6;
+                    _word6button.Text = letter;
+
+                    if (_currentWord.Length == 6)
+                    {
+                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
+                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
+                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
+                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper() &&
+                        _currentWord[4].ToString().ToUpper() == _word5button.Text.ToUpper() &&
+                        _currentWord[5].ToString().ToUpper() == _word6button.Text.ToUpper())
+                            InstallNextWord();
+                        else
+                            SetButtonsWrong();
+                    }
+
+                    break;
+                case 6:
+                    _variantsIntArray[number] = 7;
+                    _word7button.Text = letter;
+
+                    if (_currentWord.Length == 7)
+                    {
+                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
+                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
+                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
+                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper() &&
+                        _currentWord[4].ToString().ToUpper() == _word5button.Text.ToUpper() &&
+                        _currentWord[5].ToString().ToUpper() == _word6button.Text.ToUpper() &&
+                        _currentWord[6].ToString().ToUpper() == _word7button.Text.ToUpper())
+                            InstallNextWord();
+                        else
+                            SetButtonsWrong();
+                    }
+
+                    break;
+                case 7:
+                    _variantsIntArray[number] = 8;
+                    _word8button.Text = letter;
+
+                    if (_currentWord.Length == 8)
+                    {
+                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
+                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
+                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
+                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper() &&
+                        _currentWord[4].ToString().ToUpper() == _word5button.Text.ToUpper() &&
+                        _currentWord[5].ToString().ToUpper() == _word6button.Text.ToUpper() &&
+                        _currentWord[6].ToString().ToUpper() == _word7button.Text.ToUpper() &&
+                        _currentWord[7].ToString().ToUpper() == _word8button.Text.ToUpper())
+                            InstallNextWord();
+                        else
+                            SetButtonsWrong();
+                    }
+
+                    break;
+                case 8:
+                    _variantsIntArray[number] = 9;
+                    _word9button.Text = letter;
+
+                    if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
+                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
+                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
+                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper() &&
+                        _currentWord[4].ToString().ToUpper() == _word5button.Text.ToUpper() &&
+                        _currentWord[5].ToString().ToUpper() == _word6button.Text.ToUpper() &&
+                        _currentWord[6].ToString().ToUpper() == _word7button.Text.ToUpper() &&
+                        _currentWord[7].ToString().ToUpper() == _word8button.Text.ToUpper() &&
+                        _currentWord[8].ToString().ToUpper() == _word9button.Text.ToUpper())
+                        InstallNextWord();
+                    else
+                        SetButtonsWrong();
+
+                    break;
+                case 9:
+                    break;
+            }*/
         }
 
         private void OnVariantLayoutClicked(object sender, EventArgs e)
