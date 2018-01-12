@@ -152,9 +152,9 @@ namespace FPOW.Droid
         private void ShowWhatsNewAlert()
         {
             var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.AlertDialogTheme)
-                    .SetTitle($"Версия {PackageManager.GetPackageInfo(PackageName, PackageInfoFlags.Configurations).VersionName}")
-                    .SetMessage("Что нового:" + "\n" + "- исправлены найденные ошибки в вопросах." + "\n" + "\n" + "Мы очень рады, что вы участвуете в нашей викторине! А мы будем делать наше приложение все более интересным для вас!")
-                    .SetPositiveButton("Закрыть", CloseDialog)
+                    .SetTitle($"{Resources.GetString(Resource.String.VersionTitle)} {PackageManager.GetPackageInfo(PackageName, PackageInfoFlags.Configurations).VersionName}")
+                    .SetMessage(Resources.GetString(Resource.String.WhatsNewTitle) + "\n" + Resources.GetString(Resource.String.WhatsNewMessage))
+                    .SetPositiveButton(Resources.GetString(Resource.String.CloseButton), CloseDialog)
                     .SetCancelable(false)
                     .Create();
 
@@ -174,9 +174,9 @@ namespace FPOW.Droid
             var closeButton = locale == "en" || locale == "en-US" || locale == "English" ? "Close" : "Закрыть";*/
 
             var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.AlertDialogTheme)
-                    .SetTitle("")
-                    .SetMessage("")
-                    .SetPositiveButton("cls", CloseDialog)
+                    .SetTitle(Resources.GetString(Resource.String.GreetingsTitle))
+                    .SetMessage(Resources.GetString(Resource.String.GreetingsMessage))
+                    .SetPositiveButton(Resources.GetString(Resource.String.CloseButton), CloseDialog)
                     .SetCancelable(false)
                     .Create();
 
@@ -282,9 +282,9 @@ namespace FPOW.Droid
             // TODO Localize
 
             var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.AlertDialogTheme)
-                    .SetTitle($"Версия {PackageManager.GetPackageInfo(PackageName, PackageInfoFlags.Configurations).VersionName}")
-                    .SetMessage("Что нового:" + "\n" + "- исправлены найденные ошибки в вопросах." + "\n" + "\n" + "Мы очень рады, что вы участвуете в нашей викторине! А мы будем делать наше приложение все более интересным для вас!")
-                    .SetPositiveButton("Закрыть", CloseDialog)
+                    .SetTitle(Resources.GetString(Resource.String.NoMoreLevelsTitle))
+                    .SetMessage(Resources.GetString(Resource.String.NoMoreLevelsMessage))
+                    .SetPositiveButton(Resources.GetString(Resource.String.CloseButton), CloseDialog)
                     .SetCancelable(false)
                     .Create();
 
@@ -770,7 +770,7 @@ namespace FPOW.Droid
 
         private void InstallNextWord()
         {
-            var toast = Toast.MakeText(this, $"Верно! Это слово {_currentWord}!", ToastLength.Long);
+            var toast = Toast.MakeText(this, $"{Resources.GetString(Resource.String.CorrectToastText)} {_currentWord}!", ToastLength.Long);
             toast.SetGravity(GravityFlags.Center, 0, 0);
             toast.Show();
 

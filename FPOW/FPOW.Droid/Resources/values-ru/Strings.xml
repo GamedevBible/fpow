@@ -1,5 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="Hello">Привет мир!</string>
-  <string name="ApplicationName">4Ф1С</string>
+  <string name="ApplicationName">4 фото 1 слово</string>
+  <string name="GreetingsTitle">Добро пожаловать!</string>
+  <string name="GreetingsMessage">Дорогой друг! Мы рады приветствовать тебя в нашем приложении 4 фото 1 слово! Угадывай, какое слово объединяет все 4 изображения и вводи это слово в строку ответа! Желаем удачи!</string>
+  <string name="VersionTitle">Версия</string>
+  <string name="WhatsNewTitle">Что нового:</string>
+  <string name="WhatsNewMessage">Добавлены новые слова!</string>
+  <string name="CloseButton">Закрыть</string>
+  <string name="OkButton">OK</string>
+  <string name="NoMoreLevelsTitle">Временный финиш!</string>
+  <string name="NoMoreLevelsMessage">Дорогой друг! На данный момент ты завершил все уровни! Следующие уровни будут добавляться через обновления приложения, так что не расставайся с нами! Также ты можешь начать игру сначала через пункт "Настройки" в верхнем правом углу экрана.</string>
+  <string name="CorrectToastText">Верно! Это было слово</string>
+  <string name="HintDialogText">Открыть одну букву?</string>
+  <string name="YesButton">Да</string>
+  <string name="NoButton">Нет</string>
 </resources>

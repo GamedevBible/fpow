@@ -2461,8 +2461,47 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f050022
 			public const int ApplicationName = 2131034146;
 			
+			// aapt resource value: 0x7f050028
+			public const int CloseButton = 2131034152;
+			
+			// aapt resource value: 0x7f05002c
+			public const int CorrectToastText = 2131034156;
+			
+			// aapt resource value: 0x7f050024
+			public const int GreetingsMessage = 2131034148;
+			
+			// aapt resource value: 0x7f050023
+			public const int GreetingsTitle = 2131034147;
+			
 			// aapt resource value: 0x7f050021
 			public const int Hello = 2131034145;
+			
+			// aapt resource value: 0x7f05002d
+			public const int HintDialogText = 2131034157;
+			
+			// aapt resource value: 0x7f05002f
+			public const int NoButton = 2131034159;
+			
+			// aapt resource value: 0x7f05002b
+			public const int NoMoreLevelsMessage = 2131034155;
+			
+			// aapt resource value: 0x7f05002a
+			public const int NoMoreLevelsTitle = 2131034154;
+			
+			// aapt resource value: 0x7f050029
+			public const int OkButton = 2131034153;
+			
+			// aapt resource value: 0x7f050025
+			public const int VersionTitle = 2131034149;
+			
+			// aapt resource value: 0x7f050027
+			public const int WhatsNewMessage = 2131034151;
+			
+			// aapt resource value: 0x7f050026
+			public const int WhatsNewTitle = 2131034150;
+			
+			// aapt resource value: 0x7f05002e
+			public const int YesButton = 2131034158;
 			
 			// aapt resource value: 0x7f050000
 			public const int abc_action_bar_home_description = 2131034112;
