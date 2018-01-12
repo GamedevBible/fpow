@@ -353,11 +353,10 @@ namespace FPOW.Droid
             _variant15Layout.Click += OnVariantLayoutClicked;
             _variant16Layout.Click += OnVariantLayoutClicked;
 
-            _wordRemoveLayout.Click += OnRemoveLayoutClicked;
-
             _wordRemoveLayout = FindViewById<View>(Resource.Id.word_remove_layout);
             _wordRemoveButton = FindViewById<Button>(Resource.Id.word_remove_button);
             _wordRemoveButton.Text = "<<";
+            _wordRemoveLayout.Click += OnRemoveLayoutClicked;
 
             _word1layout = FindViewById<View>(Resource.Id.word1layout);
             _word2layout = FindViewById<View>(Resource.Id.word2layout);
@@ -389,159 +388,136 @@ namespace FPOW.Droid
             SetButtonsDefault();
 
             var max = _variantsIntArray.Max();
-
-            if (max == 0)
-                return;
-
-            /*switch (max)
+            
+            switch (max)
             {
                 case 0:
                     return;
                 case 1:
+                    ReturnLetterToVariant(Array.IndexOf(_variantsIntArray, 1));
                     _word1button.Text = string.Empty;
-                    _variantsIntArray[number] = 2;
-                    _word2button.Text = letter;
-
-                    if (_currentWord.Length == 2)
-                    {
-                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
-                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper())
-                            InstallNextWord();
-                        else
-                            SetButtonsWrong();
-                    }
-
+                    _variantsIntArray[Array.IndexOf(_variantsIntArray, 1)] = 0;
                     break;
                 case 2:
-                    _variantsIntArray[number] = 3;
-                    _word3button.Text = letter;
-
-                    if (_currentWord.Length == 3)
-                    {
-                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
-                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
-                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper())
-                            InstallNextWord();
-                        else
-                            SetButtonsWrong();
-                    }
-
+                    ReturnLetterToVariant(Array.IndexOf(_variantsIntArray, 2));
+                    _word2button.Text = string.Empty;
+                    _variantsIntArray[Array.IndexOf(_variantsIntArray, 2)] = 0;
                     break;
                 case 3:
-                    _variantsIntArray[number] = 4;
-                    _word4button.Text = letter;
-
-                    if (_currentWord.Length == 4)
-                    {
-                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
-                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
-                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
-                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper())
-                            InstallNextWord();
-                        else
-                            SetButtonsWrong();
-                    }
-
+                    ReturnLetterToVariant(Array.IndexOf(_variantsIntArray, 3));
+                    _word3button.Text = string.Empty;
+                    _variantsIntArray[Array.IndexOf(_variantsIntArray, 3)] = 0;
                     break;
                 case 4:
-                    _variantsIntArray[number] = 5;
-                    _word5button.Text = letter;
-
-                    if (_currentWord.Length == 5)
-                    {
-                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
-                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
-                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
-                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper() &&
-                        _currentWord[4].ToString().ToUpper() == _word5button.Text.ToUpper())
-                            InstallNextWord();
-                        else
-                            SetButtonsWrong();
-                    }
-
+                    ReturnLetterToVariant(Array.IndexOf(_variantsIntArray, 4));
+                    _word4button.Text = string.Empty;
+                    _variantsIntArray[Array.IndexOf(_variantsIntArray, 4)] = 0;
                     break;
                 case 5:
-                    _variantsIntArray[number] = 6;
-                    _word6button.Text = letter;
-
-                    if (_currentWord.Length == 6)
-                    {
-                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
-                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
-                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
-                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper() &&
-                        _currentWord[4].ToString().ToUpper() == _word5button.Text.ToUpper() &&
-                        _currentWord[5].ToString().ToUpper() == _word6button.Text.ToUpper())
-                            InstallNextWord();
-                        else
-                            SetButtonsWrong();
-                    }
-
+                    ReturnLetterToVariant(Array.IndexOf(_variantsIntArray, 5));
+                    _word5button.Text = string.Empty;
+                    _variantsIntArray[Array.IndexOf(_variantsIntArray, 5)] = 0;
                     break;
                 case 6:
-                    _variantsIntArray[number] = 7;
-                    _word7button.Text = letter;
-
-                    if (_currentWord.Length == 7)
-                    {
-                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
-                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
-                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
-                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper() &&
-                        _currentWord[4].ToString().ToUpper() == _word5button.Text.ToUpper() &&
-                        _currentWord[5].ToString().ToUpper() == _word6button.Text.ToUpper() &&
-                        _currentWord[6].ToString().ToUpper() == _word7button.Text.ToUpper())
-                            InstallNextWord();
-                        else
-                            SetButtonsWrong();
-                    }
-
+                    ReturnLetterToVariant(Array.IndexOf(_variantsIntArray, 6));
+                    _word6button.Text = string.Empty;
+                    _variantsIntArray[Array.IndexOf(_variantsIntArray, 6)] = 0;
                     break;
                 case 7:
-                    _variantsIntArray[number] = 8;
-                    _word8button.Text = letter;
-
-                    if (_currentWord.Length == 8)
-                    {
-                        if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
-                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
-                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
-                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper() &&
-                        _currentWord[4].ToString().ToUpper() == _word5button.Text.ToUpper() &&
-                        _currentWord[5].ToString().ToUpper() == _word6button.Text.ToUpper() &&
-                        _currentWord[6].ToString().ToUpper() == _word7button.Text.ToUpper() &&
-                        _currentWord[7].ToString().ToUpper() == _word8button.Text.ToUpper())
-                            InstallNextWord();
-                        else
-                            SetButtonsWrong();
-                    }
-
+                    ReturnLetterToVariant(Array.IndexOf(_variantsIntArray, 7));
+                    _word7button.Text = string.Empty;
+                    _variantsIntArray[Array.IndexOf(_variantsIntArray, 7)] = 0;
                     break;
                 case 8:
-                    _variantsIntArray[number] = 9;
-                    _word9button.Text = letter;
-
-                    if (_currentWord[0].ToString().ToUpper() == _word1button.Text.ToUpper() &&
-                        _currentWord[1].ToString().ToUpper() == _word2button.Text.ToUpper() &&
-                        _currentWord[2].ToString().ToUpper() == _word3button.Text.ToUpper() &&
-                        _currentWord[3].ToString().ToUpper() == _word4button.Text.ToUpper() &&
-                        _currentWord[4].ToString().ToUpper() == _word5button.Text.ToUpper() &&
-                        _currentWord[5].ToString().ToUpper() == _word6button.Text.ToUpper() &&
-                        _currentWord[6].ToString().ToUpper() == _word7button.Text.ToUpper() &&
-                        _currentWord[7].ToString().ToUpper() == _word8button.Text.ToUpper() &&
-                        _currentWord[8].ToString().ToUpper() == _word9button.Text.ToUpper())
-                        InstallNextWord();
-                    else
-                        SetButtonsWrong();
-
+                    ReturnLetterToVariant(Array.IndexOf(_variantsIntArray, 8));
+                    _word8button.Text = string.Empty;
+                    _variantsIntArray[Array.IndexOf(_variantsIntArray, 8)] = 0;
                     break;
                 case 9:
+                    ReturnLetterToVariant(Array.IndexOf(_variantsIntArray, 9));
+                    _word9button.Text = string.Empty;
+                    _variantsIntArray[Array.IndexOf(_variantsIntArray, 9)] = 0;
                     break;
-            }*/
+            }
+        }
+
+        private void ReturnLetterToVariant(int index)
+        {
+            switch (index)
+            {
+                case 0:
+                    _variant1Layout.Enabled = true;
+                    _variant1Button.SetBackgroundResource(Resource.Drawable.button_background);
+                    break;
+                case 1:
+                    _variant2Layout.Enabled = true;
+                    _variant2Button.SetBackgroundResource(Resource.Drawable.button_background);
+                    break;
+                case 2:
+                    _variant3Layout.Enabled = true;
+                    _variant3Button.SetBackgroundResource(Resource.Drawable.button_background);
+                    break;
+                case 3:
+                    _variant4Layout.Enabled = true;
+                    _variant4Button.SetBackgroundResource(Resource.Drawable.button_background);
+                    break;
+                case 4:
+                    _variant5Layout.Enabled = true;
+                    _variant5Button.SetBackgroundResource(Resource.Drawable.button_background);
+                    break;
+                case 5:
+                    _variant6Layout.Enabled = true;
+                    _variant6Button.SetBackgroundResource(Resource.Drawable.button_background);
+                    break;
+                case 6:
+                    _variant7Layout.Enabled = true;
+                    _variant7Button.SetBackgroundResource(Resource.Drawable.button_background);
+                    break;
+                case 7:
+                    _variant8Layout.Enabled = true;
+                    _variant8Button.SetBackgroundResource(Resource.Drawable.button_background);
+                    break;
+                case 8:
+                    _variant9Layout.Enabled = true;
+                    _variant9Button.SetBackgroundResource(Resource.Drawable.button_background);
+                    break;
+                case 9:
+                    _variant10Layout.Enabled = true;
+                    _variant10Button.SetBackgroundResource(Resource.Drawable.button_background);
+                    break;
+                case 10:
+                    _variant11Layout.Enabled = true;
+                    _variant11Button.SetBackgroundResource(Resource.Drawable.button_background);
+                    break;
+                case 11:
+                    _variant12Layout.Enabled = true;
+                    _variant12Button.SetBackgroundResource(Resource.Drawable.button_background);
+                    break;
+                case 12:
+                    _variant13Layout.Enabled = true;
+                    _variant13Button.SetBackgroundResource(Resource.Drawable.button_background);
+                    break;
+                case 13:
+                    _variant14Layout.Enabled = true;
+                    _variant14Button.SetBackgroundResource(Resource.Drawable.button_background);
+                    break;
+                case 14:
+                    _variant15Layout.Enabled = true;
+                    _variant15Button.SetBackgroundResource(Resource.Drawable.button_background);
+                    break;
+                case 15:
+                    _variant16Layout.Enabled = true;
+                    _variant16Button.SetBackgroundResource(Resource.Drawable.button_background);
+                    break;
+            }
         }
 
         private void OnVariantLayoutClicked(object sender, EventArgs e)
         {
+            var max = _variantsIntArray.Max();
+            if (max == _currentWord.Length)
+                return;
+
             switch (((View)sender).Id)
             {
                 case Resource.Id.variant1Layout:
