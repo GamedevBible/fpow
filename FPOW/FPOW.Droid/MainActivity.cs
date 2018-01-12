@@ -300,6 +300,7 @@ namespace FPOW.Droid
 
             _hintButton = FindViewById<AppCompatImageButton>(Resource.Id.hintButton);
             _settingsButton = FindViewById<AppCompatImageButton>(Resource.Id.settingsButton);
+            _settingsButton.Click += OnSettingsButtonClick;
             _level = FindViewById<TextView>(Resource.Id.level);
 
             _variant1Button = FindViewById<Button>(Resource.Id.variant1Button);
@@ -381,6 +382,14 @@ namespace FPOW.Droid
             var currentLanguage = Locale.Default.Language;
 
             _currentLocale = currentLanguage == "es" ? Locales.Spain : currentLanguage == "ru" ? Locales.Russian : Locales.English;
+        }
+
+        private void OnSettingsButtonClick(object sender, EventArgs e)
+        {
+            _currentLevel = 1;
+            _preferencesHelper.PutCurrentLevel(this, 0);
+
+            InstallLevelAndStart();
         }
 
         private void OnRemoveLayoutClicked(object sender, EventArgs e)
