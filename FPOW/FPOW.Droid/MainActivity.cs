@@ -728,9 +728,16 @@ namespace FPOW.Droid
 
         private void InstallNextWord()
         {
-            var toast = Toast.MakeText(this, $"{Resources.GetString(Resource.String.CorrectToastText)} {_currentWord}!", ToastLength.Long);
-            toast.SetGravity(GravityFlags.Center, 0, 0);
-            toast.Show();
+            var ft = SupportFragmentManager.BeginTransaction();
+            var prev = SupportFragmentManager.FindFragmentByTag(nameof(RightAnswerFragment));
+            if (prev != null)
+            {
+                ft.Remove(prev);
+            }
+            ft.AddToBackStack(null);
+
+            var dialog = RightAnswerFragment.NewInstance(_currentWord);
+            dialog.Show(ft, nameof(RightAnswerFragment));
 
             _currentLevel++;
 

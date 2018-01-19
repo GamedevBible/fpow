@@ -23,6 +23,18 @@
         <item name="colorAccent">@color/fpow_green</item>
     </style>
 
+  <style name="RightWordDialog" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+    <item name="android:windowAnimationStyle">@style/RightWordDialogAnimation</item>
+    <item name="colorPrimary">@color/fpow_green</item>
+    <item name="colorPrimaryDark">@color/fpow_dark_green</item>
+    <item name="colorAccent">@color/fpow_green</item>
+  </style>
+
+  <style name="RightWordDialogAnimation">
+    <item name="android:windowEnterAnimation">@anim/fade_in</item>
+    <item name="android:windowExitAnimation">@anim/fade_out</item>
+  </style>
+
   <!--style name="ActivitySplash" parent="Theme.AppCompat.Light.NoActionBar">
     <item name="android:windowBackground">@drawable/splash_background</item>
     <item name="android:windowFullscreen">true</item>
