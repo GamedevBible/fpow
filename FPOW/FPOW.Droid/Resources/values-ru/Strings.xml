@@ -6,7 +6,6 @@
   <string name="GreetingsMessage">Дорогой друг! Мы рады приветствовать тебя в нашем приложении 4 фото 1 слово! Угадывай, какое слово объединяет все 4 изображения и вводи это слово в строку ответа! Желаем удачи!</string>
   <string name="VersionTitle">Версия</string>
   <string name="WhatsNewTitle">Что нового:</string>
-  <string name="WhatsNewMessage">Добавлены новые слова!</string>
   <string name="CloseButton">Закрыть</string>
   <string name="OkButton">OK</string>
   <string name="NoMoreLevelsTitle">Временный финиш!</string>

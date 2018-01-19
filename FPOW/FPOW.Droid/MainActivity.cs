@@ -2,7 +2,6 @@
 using Android.Content;
 using Android.Content.PM;
 using Android.Content.Res;
-using Android.Media;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
@@ -19,7 +18,7 @@ using System;
  * - Нужно ли показывать "Что нового", если да, обновить диалог и разкомментировать флаг
  * - Повысить версию
  * - Аналитика Release
- * - Добавить слова в Words во все методы
+ * - Добавить слова в Words во все методы и в Images добавить картинки
  
      */
 
@@ -28,8 +27,6 @@ namespace FPOW.Droid
     [Activity(Label = "@string/ApplicationName", Theme = "@style/AppTheme.Main", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : AppCompatActivity
     {
-        private const int COUNT_OF_LEVELS = 2;
-
         private View _word1layout;
         private View _word2layout;
         private View _word3layout;
@@ -100,13 +97,11 @@ namespace FPOW.Droid
         private int _currentLevel;
         private PreferencesHelper _preferencesHelper;
         private int[] _variantsIntArray;
-        private string[] _variantsStringArray;
 
         /*
          1 = english
          2 = russian
          3 = spanish*/
-        private int _currentCultureID;
         private bool _needShowWhatsNew;
         private string _currentWord;
 
@@ -124,7 +119,7 @@ namespace FPOW.Droid
 
             _currentLevel = _preferencesHelper.GetCurrentLevel();
 
-            _needShowWhatsNew = true;
+            //_needShowWhatsNew = true;
 
             if (_currentLevel == 0)
             {
@@ -153,7 +148,10 @@ namespace FPOW.Droid
         {
             var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.AlertDialogTheme)
                     .SetTitle($"{Resources.GetString(Resource.String.VersionTitle)} {PackageManager.GetPackageInfo(PackageName, PackageInfoFlags.Configurations).VersionName}")
-                    .SetMessage(Resources.GetString(Resource.String.WhatsNewTitle) + "\n" + Resources.GetString(Resource.String.WhatsNewMessage))
+                    .SetMessage(Resources.GetString(Resource.String.WhatsNewTitle) + "\n"
+                    + (_currentLocale == Locales.English ? FpowConfig.WhatsNewEnglishMessage : _currentLocale == Locales.Russian
+                        ? FpowConfig.WhatsNewRussianMessage
+                        : FpowConfig.WhatsNewSpanishMessage))
                     .SetPositiveButton(Resources.GetString(Resource.String.CloseButton), CloseDialog)
                     .SetCancelable(false)
                     .Create();
@@ -163,16 +161,6 @@ namespace FPOW.Droid
 
         private void ShowGreetingsAlert()
         {
-            /*var locale = Locale.Default.DisplayLanguage;
-
-            var title = locale == "en" || locale == "en-US" || locale == "English" ? "Welcome!" : "Добро пожаловать!";
-
-            var message = locale == "en" || locale == "en-US" || locale == "English"
-                ? "Dear friend! This time our app supports only russian language. We are sorry for that."
-                : "Дорогой друг! Мы очень рады, что ты присоединился к нашему приложению! Тебя ждут более 3000 вопросов! Желаем тебе успехов!";
-
-            var closeButton = locale == "en" || locale == "en-US" || locale == "English" ? "Close" : "Закрыть";*/
-
             var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.AlertDialogTheme)
                     .SetTitle(Resources.GetString(Resource.String.GreetingsTitle))
                     .SetMessage(Resources.GetString(Resource.String.GreetingsMessage))
@@ -190,7 +178,7 @@ namespace FPOW.Droid
 
         private void InstallLevelAndStart()
         {
-            if (_currentLevel > COUNT_OF_LEVELS)
+            if (_currentLevel > FpowConfig.COUNT_OF_LEVELS)
             {
                 ShowNoMoreLevelsDialog();
                 ClearWordArea();
@@ -205,17 +193,17 @@ namespace FPOW.Droid
                     _variant10Button.Text = _variant11Button.Text = _variant12Button.Text =
                     _variant13Button.Text = _variant14Button.Text = _variant15Button.Text =
                     _variant16Button.Text = string.Empty;
-                _level.Text = $"{COUNT_OF_LEVELS} / {COUNT_OF_LEVELS}";
+                _level.Text = $"{FpowConfig.COUNT_OF_LEVELS} / {FpowConfig.COUNT_OF_LEVELS}";
                 return;
             }
 
             _currentWord = _currentLocale == Locales.English 
-                    ? Words.GetEnglishWord(_currentLevel) 
+                    ? GameWords.GetEnglishWord(_currentLevel) 
                     : _currentLocale == Locales.Russian 
-                        ? Words.GetRussianWord(_currentLevel) 
-                        : Words.GetSpanishWord(_currentLevel);
+                        ? GameWords.GetRussianWord(_currentLevel) 
+                        : GameWords.GetSpanishWord(_currentLevel);
 
-            _level.Text = $"{_currentLevel} / {COUNT_OF_LEVELS}";
+            _level.Text = $"{_currentLevel} / {FpowConfig.COUNT_OF_LEVELS}";
 
             _variantsIntArray = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             EnableAllButtons();
@@ -242,45 +230,16 @@ namespace FPOW.Droid
         {
             int[] images = new int[] { };
 
-            switch (_currentLevel)
-            {
-                
-                case 1:
-                    images = new int[] { Resource.Drawable.Icon,
-                        Resource.Drawable.Icon,
-                        Resource.Drawable.Icon,
-                        Resource.Drawable.Icon };
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-                case 6:
-                    break;
-                case 7:
-                    break;
-                case 8:
-                    break;
-                case 9:
-                    break;
-                case 10:
-                    break;
-            }
+            images = GameImages.GetGameImages(_currentLevel);
 
-            /*_image1View.SetImageResource(images[0]);
+            _image1View.SetImageResource(images[0]);
             _image2View.SetImageResource(images[1]);
             _image3View.SetImageResource(images[2]);
-            _image4View.SetImageResource(images[3]);*/
+            _image4View.SetImageResource(images[3]);
         }
 
         private void ShowNoMoreLevelsDialog()
         {
-            // TODO Localize
-
             var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.AlertDialogTheme)
                     .SetTitle(Resources.GetString(Resource.String.NoMoreLevelsTitle))
                     .SetMessage(Resources.GetString(Resource.String.NoMoreLevelsMessage))
@@ -533,7 +492,6 @@ namespace FPOW.Droid
                     _variant1Layout.Enabled = false;
                     _variant1Button.SetBackgroundResource(Resource.Drawable.button_disabled);
                     ProcessLetter(0, _variant1Button.Text);
-                    // TODO
                     break;
                 case Resource.Id.variant2Layout:
                     _variant2Layout.Enabled = false;

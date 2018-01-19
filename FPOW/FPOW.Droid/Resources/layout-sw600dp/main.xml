@@ -50,7 +50,7 @@
             android:layout_margin="5dp"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:id="@+id/peopleButton"
+            android:id="@+id/settingsButton"
             style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
             app:srcCompat="@drawable/settings"/>
     </LinearLayout>
@@ -110,91 +110,443 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:gravity="center"
+      android:layout_marginBottom="10dp"
       android:orientation="horizontal">
-      <Button
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_margin="5dp"
-         android:text="Б"
-         android:id="@+id/b1"
-         style="@style/Widget.AppCompat.Button.Colored"/>
-      <Button
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_margin="5dp"
-         android:text="И"
-         android:id="@+id/b2"
-         style="@style/Widget.AppCompat.Button.Colored"/>
-      <Button
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_margin="5dp"
-         android:text="Б"
-         android:id="@+id/b3"
-         style="@style/Widget.AppCompat.Button.Colored"
-         android:ems="1" />
-      <Button
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_margin="5dp"
-         android:text="Л"
-         android:id="@+id/b4"
-         style="@style/Widget.AppCompat.Button.Colored"
-         android:ems="1" />
-      <Button
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_margin="5dp"
-         android:text="И"
-         android:id="@+id/b5"
-         style="@style/Widget.AppCompat.Button.Colored"
-         android:ems="1" />
-      <Button
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_margin="5dp"
-         android:text="Я"
-         android:id="@+id/b6"
-         style="@style/Widget.AppCompat.Button.Colored"
-         android:ems="1" />
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_margin="3dp"
+                    android:id="@+id/word1layout"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:background="@drawable/field_background"
+            android:textColor="@color/fpow_green"
+            android:id="@+id/word1button"
+            android:text="Б"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_margin="3dp"
+                   android:id="@+id/word2layout"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:background="@drawable/field_background"
+            android:textColor="@color/fpow_green"
+            android:id="@+id/word2button"
+            android:text="Б"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_margin="3dp"
+                   android:id="@+id/word3layout"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:background="@drawable/field_background"
+            android:textColor="@color/fpow_green"
+            android:id="@+id/word3button"
+            android:text="Б"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_margin="3dp"
+                   android:id="@+id/word4layout"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:background="@drawable/field_background"
+            android:textColor="@color/fpow_green"
+            android:id="@+id/word4button"
+            android:text="Б"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_margin="3dp"
+                   android:id="@+id/word5layout"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:background="@drawable/field_background"
+            android:textColor="@color/fpow_green"
+            android:id="@+id/word5button"
+            android:text="Б"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_margin="3dp"
+                   android:id="@+id/word6layout"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:background="@drawable/field_background"
+            android:textColor="@color/fpow_green"
+            android:id="@+id/word6button"
+            android:text="Б"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_margin="3dp"
+                   android:id="@+id/word7layout"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:background="@drawable/field_background"
+            android:textColor="@color/fpow_green"
+            android:id="@+id/word7button"
+            android:text="Б"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_margin="3dp"
+                   android:id="@+id/word8layout"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:background="@drawable/field_background"
+            android:textColor="@color/fpow_green"
+            android:id="@+id/word8button"
+            android:text="Т"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_margin="3dp"
+                   android:id="@+id/word9layout"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:background="@drawable/field_background"
+            android:textColor="@color/fpow_green"
+            android:id="@+id/word9button"
+            android:text="Т"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                   android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+                   android:id="@+id/word_remove_layout"
+            android:layout_margin="3dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:background="@drawable/button_background"
+                android:textColor="@android:color/white"
+            android:id="@+id/word_remove_button"
+            android:text="-="
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
     </LinearLayout>
-    <!--Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="5dp"
-        android:layout_centerHorizontal="true"
-        android:text="Начать игру"
-        android:id="@+id/startButton"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:ems="18" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="5dp"
-        android:text="Мои рекорды"
-        android:id="@+id/recordsButton"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:ems="18" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="5dp"
-        android:text="Справка"
-        android:id="@+id/guideButton"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:ems="18" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Дополнительно"
-        android:layout_marginBottom="15dp"
-        android:id="@+id/contactsButton"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:ems="18" /-->
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_horizontal"
+      android:orientation="horizontal">
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/variant1Layout"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+                   android:layout_margin="4dp"
+                android:layout_marginTop="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:text="Б"
+            android:id="@+id/variant1Button"
+            android:ems="18"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:foreground="?attr/selectableItemBackground"
+                   android:id="@+id/variant2Layout"
+             android:clickable="true"
+            android:layout_margin="4dp"
+                android:layout_marginTop="0dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:id="@+id/variant2Button"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:text="Б"
+            android:ems="18"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:foreground="?attr/selectableItemBackground"
+             android:clickable="true"
+                   android:id="@+id/variant3Layout"
+            android:layout_margin="4dp"
+                android:layout_marginTop="0dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:id="@+id/variant3Button"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:text="Б"
+            android:ems="18"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:foreground="?attr/selectableItemBackground"
+             android:clickable="true"
+                   android:id="@+id/variant4Layout"
+            android:layout_margin="4dp"
+                android:layout_marginTop="0dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:id="@+id/variant4Button"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:text="Б"
+            android:ems="18"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:foreground="?attr/selectableItemBackground"
+             android:clickable="true"
+                   android:id="@+id/variant5Layout"
+            android:layout_margin="4dp"
+                android:layout_marginTop="0dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:id="@+id/variant5Button"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:text="Б"
+            android:ems="18"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:foreground="?attr/selectableItemBackground"
+              android:clickable="true"
+                   android:id="@+id/variant6Layout"
+            android:layout_margin="4dp"
+                android:layout_marginTop="0dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:id="@+id/variant6Button"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:text="Б"
+            android:ems="18"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:foreground="?attr/selectableItemBackground"
+             android:clickable="true"
+                   android:id="@+id/variant7Layout"
+            android:layout_margin="4dp"
+                android:layout_marginTop="0dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:id="@+id/variant7Button"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:text="Б"
+            android:ems="18"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:foreground="?attr/selectableItemBackground"
+             android:clickable="true"
+                   android:id="@+id/variant8Layout"
+            android:layout_margin="4dp"
+                android:layout_marginTop="0dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:id="@+id/variant8Button"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:text="Б"
+            android:ems="18"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+    </LinearLayout>
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_horizontal"
+      android:orientation="horizontal">
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:foreground="?attr/selectableItemBackground"
+             android:clickable="true"
+                   android:id="@+id/variant9Layout"
+            android:layout_margin="4dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:id="@+id/variant9Button"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:text="Б"
+            android:ems="18"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:foreground="?attr/selectableItemBackground"
+             android:clickable="true"
+                   android:id="@+id/variant10Layout"
+            android:layout_margin="4dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:id="@+id/variant10Button"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:text="Б"
+            android:ems="18"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:foreground="?attr/selectableItemBackground"
+             android:clickable="true"
+                   android:id="@+id/variant11Layout"
+            android:layout_margin="4dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:id="@+id/variant11Button"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:text="Б"
+            android:ems="18"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:foreground="?attr/selectableItemBackground"
+             android:clickable="true"
+                   android:id="@+id/variant12Layout"
+            android:layout_margin="4dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:id="@+id/variant12Button"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:text="Б"
+            android:ems="18"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:foreground="?attr/selectableItemBackground"
+             android:clickable="true"
+                   android:id="@+id/variant13Layout"
+            android:layout_margin="4dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:id="@+id/variant13Button"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:text="Б"
+            android:ems="18"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:foreground="?attr/selectableItemBackground"
+             android:clickable="true"
+                   android:id="@+id/variant14Layout"
+            android:layout_margin="4dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:id="@+id/variant14Button"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:text="Б"
+            android:ems="18"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:foreground="?attr/selectableItemBackground"
+             android:clickable="true"
+                   android:id="@+id/variant15Layout"
+            android:layout_margin="4dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:id="@+id/variant15Button"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:text="Б"
+            android:ems="18"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:foreground="?attr/selectableItemBackground"
+             android:clickable="true"
+                   android:id="@+id/variant16Layout"
+            android:layout_margin="4dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+        <Button
+            android:clickable="false"
+            android:id="@+id/variant16Button"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:text="Б"
+            android:ems="18"
+            android:layout_width="40dp"
+            android:layout_height="42dp" />
+      </FrameLayout>
+    </LinearLayout>
   </LinearLayout>
   </LinearLayout>
 </RelativeLayout>

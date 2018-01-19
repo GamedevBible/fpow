@@ -114,8 +114,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FpowConfig.cs" />
     <Compile Include="GameClasses\GameHelper.cs" />
-    <Compile Include="GameClasses\Words.cs" />
+    <Compile Include="GameClasses\GameImages.cs" />
+    <Compile Include="GameClasses\GameWords.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="GameClasses\PreferencesHelper.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

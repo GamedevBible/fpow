@@ -6,7 +6,6 @@
   <string name="GreetingsMessage">Dear friend! We are very glad that you joined our application 4 photos 1 word! Find the word which is hidden in the photos and fill the answer field. Good luck!</string>
   <string name="VersionTitle">Version</string>
   <string name="WhatsNewTitle">Whats new:</string>
-  <string name="WhatsNewMessage">Added new words!</string>
   <string name="CloseButton">Close</string>
   <string name="OkButton">OK</string>
   <string name="NoMoreLevelsTitle">Temporary finish!</string>
