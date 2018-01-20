@@ -1,13 +1,10 @@
 using Android.Support.V7.App;
-using System.Collections.Generic;
 using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using Android.Support.V4.Content;
 using Android.Content;
 using System;
-using System.Threading.Tasks;
 
 namespace FPOW.Droid
 {
@@ -17,6 +14,7 @@ namespace FPOW.Droid
         private string _word;
         private TextView _titleTextView;
         private TextView _wordTextView;
+        public event EventHandler OnClosed;
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
         {
@@ -37,6 +35,13 @@ namespace FPOW.Droid
                 .Create();
             
             return dialog;
+        }
+
+        public override void OnDismiss(IDialogInterface dialog)
+        {
+            base.OnDismiss(dialog);
+
+            OnClosed?.Invoke(this, EventArgs.Empty);
         }
 
         private void CloseDialog(object sender, DialogClickEventArgs e)

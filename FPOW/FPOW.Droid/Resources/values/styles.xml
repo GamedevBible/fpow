@@ -25,9 +25,10 @@
 
   <style name="RightWordDialog" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
     <item name="android:windowAnimationStyle">@style/RightWordDialogAnimation</item>
-    <item name="colorPrimary">@color/fpow_green</item>
-    <item name="colorPrimaryDark">@color/fpow_dark_green</item>
-    <item name="colorAccent">@color/fpow_green</item>
+    <item name="colorPrimary">@color/dark_gray</item>
+    <item name="android:background">#69F0AE</item>
+    <item name="colorPrimaryDark">@color/dark_gray</item>
+    <item name="colorAccent">@color/dark_gray</item>
   </style>
 
   <style name="RightWordDialogAnimation">

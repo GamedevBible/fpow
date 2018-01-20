@@ -260,6 +260,7 @@ namespace FPOW.Droid
             _hintButton = FindViewById<AppCompatImageButton>(Resource.Id.hintButton);
             _settingsButton = FindViewById<AppCompatImageButton>(Resource.Id.settingsButton);
             _settingsButton.Click += OnSettingsButtonClick;
+            _hintButton.Click += OnHintButtonClicked;
             _level = FindViewById<TextView>(Resource.Id.level);
 
             _variant1Button = FindViewById<Button>(Resource.Id.variant1Button);
@@ -341,6 +342,25 @@ namespace FPOW.Droid
             var currentLanguage = Locale.Default.Language;
 
             _currentLocale = currentLanguage == "es" ? Locales.Spain : currentLanguage == "ru" ? Locales.Russian : Locales.English;
+        }
+
+        private void OnHintButtonClicked(object sender, EventArgs e)
+        {
+            var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.RightWordDialog)
+                    .SetTitle(Resources.GetString(Resource.String.HintDialogText))
+                    .SetPositiveButton(Resources.GetString(Resource.String.YesButton), OpenFirstLetter)
+                    .SetNegativeButton(Resources.GetString(Resource.String.NoButton), CloseDialog)
+                    .SetCancelable(false)
+                    .Create();
+
+            dialog.Show();
+        }
+
+        private void OpenFirstLetter(object sender, DialogClickEventArgs e)
+        {
+            var letter = _currentWord[0];
+
+            // TODO
         }
 
         private void OnSettingsButtonClick(object sender, EventArgs e)
@@ -737,12 +757,16 @@ namespace FPOW.Droid
             ft.AddToBackStack(null);
 
             var dialog = RightAnswerFragment.NewInstance(_currentWord);
+            dialog.OnClosed += OnRightAnswerDialogDismissed;
             dialog.Show(ft, nameof(RightAnswerFragment));
 
             _currentLevel++;
 
             _preferencesHelper.PutCurrentLevel(this, _currentLevel);
+        }
 
+        private void OnRightAnswerDialogDismissed(object sender, EventArgs e)
+        {
             InstallLevelAndStart();
         }
 
