@@ -358,9 +358,132 @@ namespace FPOW.Droid
 
         private void OpenFirstLetter(object sender, DialogClickEventArgs e)
         {
-            var letter = _currentWord[0];
+            SetButtonsDefault();
 
-            // TODO
+            var letter = _currentWord[0].ToString();
+
+            if (_variant1Button.Text == letter)
+            {
+                ProcessFirstLetter(0, letter);
+                _variant1Layout.Enabled = false;
+                _variant1Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                return;
+            }
+            if (_variant2Button.Text == letter)
+            {
+                ProcessFirstLetter(1, letter);
+                _variant2Layout.Enabled = false;
+                _variant2Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                return;
+            }
+            if (_variant3Button.Text == letter)
+            {
+                ProcessFirstLetter(2, letter);
+                _variant3Layout.Enabled = false;
+                _variant3Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                return;
+            }
+            if (_variant4Button.Text == letter)
+            {
+                ProcessFirstLetter(3, letter);
+                _variant4Layout.Enabled = false;
+                _variant4Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                return;
+            }
+            if (_variant5Button.Text == letter)
+            {
+                ProcessFirstLetter(4, letter);
+                _variant5Layout.Enabled = false;
+                _variant5Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                return;
+            }
+            if (_variant6Button.Text == letter)
+            {
+                ProcessFirstLetter(5, letter);
+                _variant6Layout.Enabled = false;
+                _variant6Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                return;
+            }
+            if (_variant7Button.Text == letter)
+            {
+                ProcessFirstLetter(6, letter);
+                _variant7Layout.Enabled = false;
+                _variant7Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                return;
+            }
+            if (_variant8Button.Text == letter)
+            {
+                ProcessFirstLetter(7, letter);
+                _variant8Layout.Enabled = false;
+                _variant8Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                return;
+            }
+            if (_variant9Button.Text == letter)
+            {
+                ProcessFirstLetter(8, letter);
+                _variant9Layout.Enabled = false;
+                _variant9Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                return;
+            }
+            if (_variant10Button.Text == letter)
+            {
+                ProcessFirstLetter(9, letter);
+                _variant10Layout.Enabled = false;
+                _variant10Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                return;
+            }
+            if (_variant11Button.Text == letter)
+            {
+                ProcessFirstLetter(10, letter);
+                _variant11Layout.Enabled = false;
+                _variant11Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                return;
+            }
+            if (_variant12Button.Text == letter)
+            {
+                ProcessFirstLetter(11, letter);
+                _variant12Layout.Enabled = false;
+                _variant12Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                return;
+            }
+            if (_variant13Button.Text == letter)
+            {
+                ProcessFirstLetter(12, letter);
+                _variant13Layout.Enabled = false;
+                _variant13Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                return;
+            }
+            if (_variant14Button.Text == letter)
+            {
+                ProcessFirstLetter(13, letter);
+                _variant14Layout.Enabled = false;
+                _variant14Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                return;
+            }
+            if (_variant15Button.Text == letter)
+            {
+                ProcessFirstLetter(14, letter);
+                _variant15Layout.Enabled = false;
+                _variant15Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                return;
+            }
+            if (_variant16Button.Text == letter)
+            {
+                ProcessFirstLetter(15, letter);
+                _variant16Layout.Enabled = false;
+                _variant16Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                return;
+            }
+        }
+
+        private void ProcessFirstLetter(int numberOfVariant, string letter)
+        {
+            _variantsIntArray = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            EnableAllButtons();
+            ClearWordArea();
+
+            _word1button.Text = letter.ToString();
+            _variantsIntArray[numberOfVariant] = 1;
         }
 
         private void OnSettingsButtonClick(object sender, EventArgs e)
