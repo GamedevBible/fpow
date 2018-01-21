@@ -58,7 +58,7 @@ namespace FPOW.Droid
             else
             {
                 string text = "<font>У вас есть вопросы или предложения?</font><br>" +
-                "<font>Напишите нам: </font><font color=#01A7F2>biblegamedev@gmail.com</font>";
+                "<font>Напишите нам: </font><font color=#00c853>biblegamedev@gmail.com</font>";
 
                 _contactUs.SetText(Html.FromHtml(text), TextView.BufferType.Spannable);
             }
@@ -167,7 +167,7 @@ namespace FPOW.Droid
 
         private void OnThanksButtonClicked(object sender, EventArgs e)
         {
-            /*var ft = SupportFragmentManager.BeginTransaction();
+            var ft = SupportFragmentManager.BeginTransaction();
             var prev = SupportFragmentManager.FindFragmentByTag(nameof(ThanksFragment));
             if (prev != null)
             {
@@ -177,7 +177,7 @@ namespace FPOW.Droid
 
             var dialog = ThanksFragment.NewInstance();
             dialog.Cancelable = false;
-            dialog.Show(ft, nameof(ThanksFragment));*/
+            dialog.Show(ft, nameof(ThanksFragment));
         }
 
         private void AlertConfirmButtonClicked(object sender, DialogClickEventArgs e)
