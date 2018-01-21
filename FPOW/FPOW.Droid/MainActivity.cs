@@ -27,6 +27,8 @@ namespace FPOW.Droid
     [Activity(Label = "@string/ApplicationName", Theme = "@style/AppTheme.Main", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : AppCompatActivity
     {
+        private const int _contactsActivityCode = 14;
+
         private View _word1layout;
         private View _word2layout;
         private View _word3layout;
@@ -488,10 +490,11 @@ namespace FPOW.Droid
 
         private void OnSettingsButtonClick(object sender, EventArgs e)
         {
-            _currentLevel = 1;
+            StartActivity(ContactsActivity.CreateStartIntent(this));
+            /*_currentLevel = 1;
             _preferencesHelper.PutCurrentLevel(this, 0);
 
-            InstallLevelAndStart();
+            InstallLevelAndStart();*/
         }
 
         private void OnRemoveLayoutClicked(object sender, EventArgs e)
