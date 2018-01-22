@@ -59,6 +59,7 @@ namespace FPOW.Droid.GameClasses
             if (_editor == null)
                 _editor = _prefs.Edit();
 
+            _selectedLanguage = language;
             _editor.PutInt("selectedLanguage", language);
             _editor.Commit();
         }

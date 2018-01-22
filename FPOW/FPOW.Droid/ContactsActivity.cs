@@ -1,5 +1,4 @@
-using System;
-
+п»їusing System;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -9,12 +8,16 @@ using Android.Support.V7.App;
 using Android.Content.PM;
 using Android.Text;
 using Microsoft.Azure.Mobile.Analytics;
+using Java.Util;
+using Android.Content.Res;
+using FPOW.Droid.GameClasses;
 
 namespace FPOW.Droid
 {
     [Activity(Label = "ContactsActivity", Theme = "@style/AppTheme.Main", Icon = "@drawable/icon")]
     public class ContactsActivity : AppCompatActivity
     {
+        private PreferencesHelper _preferencesHelper;
         private TextView _version;
         private TextView _lessons;
         private TextView _contactUs;
@@ -26,12 +29,16 @@ namespace FPOW.Droid
         private View _lessonsLayout;
         private View _contactUsLayout;
         private View _supportUsLayout;
+        private bool _languageChanged;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.contacts);
+
+            _preferencesHelper = new PreferencesHelper();
+            _preferencesHelper.InitHepler(this);
 
             _version = FindViewById<TextView>(Resource.Id.appVersion);
             _lessons = FindViewById<TextView>(Resource.Id.lessons);
@@ -43,34 +50,58 @@ namespace FPOW.Droid
             _contactUsLayout = FindViewById<View>(Resource.Id.contactUsLayout);
             _supportUsLayout = FindViewById<View>(Resource.Id.supportUsLayout);
 
-            _version.Text = $"Версия приложения {PackageManager.GetPackageInfo(PackageName, PackageInfoFlags.Configurations).VersionName}";
+            _version.Text = $"Р’РµСЂСЃРёСЏ РїСЂРёР»РѕР¶РµРЅРёСЏ {PackageManager.GetPackageInfo(PackageName, PackageInfoFlags.Configurations).VersionName}";
             
             _thanksButton.Click += OnThanksButtonClicked;
 
             //if Landscape
             if (WindowManager.DefaultDisplay.Rotation == SurfaceOrientation.Rotation90 || WindowManager.DefaultDisplay.Rotation == SurfaceOrientation.Rotation270)
             {
-                string text = "<font>У вас есть вопросы или предложения? </font>" +
-                "<font>Напишите нам: </font><font color=#01A7F2>biblegamedev@gmail.com</font>";
+                string text = "<font>РЈ РІР°СЃ РµСЃС‚СЊ РІРѕРїСЂРѕСЃС‹ РёР»Рё РїСЂРµРґР»РѕР¶РµРЅРёСЏ? </font>" +
+                "<font>РќР°РїРёС€РёС‚Рµ РЅР°Рј: </font><font color=#01A7F2>biblegamedev@gmail.com</font>";
 
                 _contactUs.SetText(Html.FromHtml(text), TextView.BufferType.Spannable);
             }
             else
             {
-                string text = "<font>У вас есть вопросы или предложения?</font><br>" +
-                "<font>Напишите нам: </font><font color=#00c853>biblegamedev@gmail.com</font>";
+                string text = "<font>РЈ РІР°СЃ РµСЃС‚СЊ РІРѕРїСЂРѕСЃС‹ РёР»Рё РїСЂРµРґР»РѕР¶РµРЅРёСЏ?</font><br>" +
+                "<font>РќР°РїРёС€РёС‚Рµ РЅР°Рј: </font><font color=#00c853>biblegamedev@gmail.com</font>";
 
                 _contactUs.SetText(Html.FromHtml(text), TextView.BufferType.Spannable);
             }
 
-            _lessons.Text = 
-                $"Изучение Библии";
+            var selectedLocaleIndex = _preferencesHelper.GetSelectedLanguage();
+            if (selectedLocaleIndex != 0)
+            {
+                switch (selectedLocaleIndex)
+                {
+                    case 1:
+                        _lessons.Text = "Language: English";
+                        break;
+                    case 2:
+                        _lessons.Text = "РЇР·С‹Рє: Р СѓСЃСЃРєРёР№";
+                        break;
+                    case 3:
+                        _lessons.Text = "Idioma: EspaГ±ol";
+                        break;
+                }
+            }
+            else
+            {
+                var currentLocale = Locale.Default;
+                var enLocale = new Locale("en");
+                var ruLocale = new Locale("ru");
+                var esLocale = new Locale("es");
 
-            //string supportText = "</font><font color=#01A7F2>- Поддержать нас -</font>";
+                if (currentLocale.Language == enLocale.Language)
+                    _lessons.Text = "Language: English";
+                if (currentLocale.Language == ruLocale.Language)
+                    _lessons.Text = "РЇР·С‹Рє: Р СѓСЃСЃРєРёР№";
+                if (currentLocale.Language == esLocale.Language)
+                    _lessons.Text = "Idioma: EspaГ±ol";
+            }
 
-            //_supportUs.SetText(Html.FromHtml(supportText), TextView.BufferType.Spannable);
-
-            _supportUs.Text = "Поддержать нас";
+            _supportUs.Text = Resources.GetString(Resource.String.SupportUsTitle);
 
             _lessonsLayout.Click += OnAppVersionClicked;
             _contactUsLayout.Click += OnContactUsClicked;
@@ -84,27 +115,50 @@ namespace FPOW.Droid
                 return;
             _inactive = true;
 
-            var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.AlertDialogTheme)
-                    .SetTitle($"Изучение Библии")
-                    .SetMessage("У вас есть вопросы по Библии? Вы всегда можете задать их нам на Email! "+
-                    "Также вы можете изучать Библию самостоятельно при помощи уроков по изучению! Хороший сайт с уроками имеется по адресу http://apologetica.ru.")
-                    .SetNegativeButton("Перейти на сайт", GoToLessonsSite)
-                    .SetPositiveButton("Закрыть", AlertConfirmButtonClicked)
-                    .SetCancelable(false)
-                    .Create();
-
-            dialog.Show();
+            new Android.Support.V7.App.AlertDialog.Builder(this)
+               .SetItems(new[] { "English", "Р СѓСЃСЃРєРёР№", "EspaГ±ol" }, DialogClickHandler)
+                .Show();
         }
 
-        private void GoToLessonsSite(object sender, DialogClickEventArgs e)
+        private void DialogClickHandler(object sender, DialogClickEventArgs e)
         {
-            _inactive = false;
+            var currentLocale = Locale.Default;
 
-            Analytics.TrackEvent("User go to Bible lessons site");
-
-            var uri = Android.Net.Uri.Parse("http://apologetica.ru/uroki/uroki-po-izucheniyu-biblii.html");
-            var intent = new Intent(Intent.ActionView, uri);
-            StartActivity(intent);
+            switch (e.Which)
+            {
+                case 0:
+                    var enLocale = new Locale("en");
+                    if (currentLocale == enLocale)
+                        return;
+                    _languageChanged = true;
+                    _preferencesHelper.PutSelectedLanguage(this, 1);
+                    Locale.Default = enLocale;
+                    var config = new Configuration { Locale = enLocale };
+                    BaseContext.Resources.UpdateConfiguration(config, BaseContext.Resources.DisplayMetrics);
+                    break;
+                case 1:
+                    var ruLocale = new Locale("ru");
+                    if (currentLocale == ruLocale)
+                        return;
+                    _languageChanged = true;
+                    _preferencesHelper.PutSelectedLanguage(this, 2);
+                    Locale.Default = ruLocale;
+                    var config1 = new Configuration { Locale = ruLocale };
+                    BaseContext.Resources.UpdateConfiguration(config1, BaseContext.Resources.DisplayMetrics);
+                    break;
+                case 2:
+                    var spanishLocale = new Locale("es");
+                    if (currentLocale == spanishLocale)
+                        return;
+                    _languageChanged = true;
+                    _preferencesHelper.PutSelectedLanguage(this, 3);
+                    Locale.Default = spanishLocale;
+                    var config2 = new Configuration { Locale = spanishLocale };
+                    BaseContext.Resources.UpdateConfiguration(config2, BaseContext.Resources.DisplayMetrics);
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void OnSupportUsClicked(object sender, EventArgs e)
@@ -114,12 +168,10 @@ namespace FPOW.Droid
             _inactive = true;
 
             var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.AlertDialogTheme)
-                    .SetTitle("Поддержать нас")
-                    .SetMessage("Дорогие друзья! Вы всегда можете поддержать нас: поставив нашему приложению 5 звезд в магазине Play Market, "+
-                    "молясь за пробуждение у людей интереса к изучению Библии, рассказывая друзьям и знакомым об этом приложении, "+
-                    "помогая нам добровольными пожертвованиями. Спасибо вам за вашу поддержку!")
-                    .SetNegativeButton("О пожертвованиях", OnDonateUsClicked)
-                    .SetPositiveButton("Закрыть", AlertConfirmButtonClicked)
+                    .SetTitle(Resources.GetString(Resource.String.SupportUsTitle))
+                    .SetMessage(Resources.GetString(Resource.String.SupportUsText))
+                    .SetNegativeButton(Resources.GetString(Resource.String.AboutDonatesButton), OnDonateUsClicked)
+                    .SetPositiveButton(Resources.GetString(Resource.String.CloseButton), AlertConfirmButtonClicked)
                     .SetCancelable(false)
                     .Create();
 
@@ -136,14 +188,10 @@ namespace FPOW.Droid
             _inactive = true;
 
             var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.AlertDialogTheme)
-                    .SetTitle("Поддержка BibleGameDev")
-                    .SetMessage("Вся оказываемая поддержка проектов BibleGameDev является добровольной и безвозмездной."+
-                    " Поддержать нас своими пожертвованиями можно переводом на счет Яндекс.Деньги: 410015425804928."+
-                    " По желанию, в сообщении к пожертвованию вы можете указать свое имя или инициалы."+
-                    " Благодарим вас за оказанную помощь! С вашей помощью наши новые проекты будут более качественными!"+
-                    " Вы помогаете пробудить у людей интерес к изучению Библии!")
-                    .SetNegativeButton("Перейти на сайт", YandexMoneyCopied)
-                    .SetPositiveButton("Закрыть", AlertConfirmButtonClicked)
+                    .SetTitle(Resources.GetString(Resource.String.DonateTitle))
+                    .SetMessage(Resources.GetString(Resource.String.DonateText))
+                    .SetNegativeButton(Resources.GetString(Resource.String.GoToSiteButton), YandexMoneyCopied)
+                    .SetPositiveButton(Resources.GetString(Resource.String.CloseButton), AlertConfirmButtonClicked)
                     .SetCancelable(false)
                     .Create();
 
@@ -157,11 +205,7 @@ namespace FPOW.Droid
             var uri = Android.Net.Uri.Parse("https://money.yandex.ru/to/410015425804928");
             var intent = new Intent(Intent.ActionView, uri);
             StartActivity(intent);
-            /*Android.Content.ClipboardManager clipboard = (Android.Content.ClipboardManager)GetSystemService(ClipboardService);
-            ClipData clip = ClipData.NewPlainText("label", "410015425804928");
-            clipboard.PrimaryClip = clip;
 
-            Toast.MakeText(this, "Номер счета скопирован", ToastLength.Short).Show();*/
             _inactive = false;
         }
 
@@ -192,7 +236,7 @@ namespace FPOW.Droid
             ClipData clip = ClipData.NewPlainText("label", "biblegamedev@gmail.com");
             clipboard.PrimaryClip = clip;
 
-            Toast.MakeText(this, "Email скопирован", ToastLength.Short).Show();
+            Toast.MakeText(this, Resources.GetString(Resource.String.EmailCopiedLabel), ToastLength.Short).Show();
         }
 
         private void OnContactUsClicked(object sender, EventArgs e)
@@ -201,7 +245,7 @@ namespace FPOW.Droid
             // The intent does not have a URI, so declare the "text/plain" MIME type
             emailIntent.SetType("vnd.android.cursor.dir/email");
             emailIntent.PutExtra(Intent.ExtraEmail, new[] { "biblegamedev@gmail.com" }); // recipients
-            emailIntent.PutExtra(Intent.ExtraSubject, "Message from BM game");
+            emailIntent.PutExtra(Intent.ExtraSubject, "Message from FPOW game");
             emailIntent.PutExtra(Intent.ExtraText, string.Empty);
 
             try
@@ -214,9 +258,16 @@ namespace FPOW.Droid
                 ClipData clip = ClipData.NewPlainText("label", "biblegamedev@gmail.com");
                 clipboard.PrimaryClip = clip;
 
-                Toast.MakeText(this, "Email скопирован", ToastLength.Short).Show();
+                Toast.MakeText(this, Resources.GetString(Resource.String.EmailCopiedLabel), ToastLength.Short).Show();
             }
-            
+        }
+
+        public override void OnBackPressed()
+        {
+            Intent myIntent = new Intent(this, typeof(MainActivity));
+            myIntent.PutExtra("languageChanged", _languageChanged);
+            SetResult(Result.Ok, myIntent);
+            Finish();
         }
 
         public static Intent CreateStartIntent(Context context, string message = null)

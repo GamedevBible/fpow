@@ -12,6 +12,7 @@ using Java.Util;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using Android.Runtime;
 
 /* Перед обновлением:
  * - Проверить сколько уровней, и если надо изменить константу
@@ -490,11 +491,25 @@ namespace FPOW.Droid
 
         private void OnSettingsButtonClick(object sender, EventArgs e)
         {
-            StartActivity(ContactsActivity.CreateStartIntent(this));
+            StartActivityForResult(ContactsActivity.CreateStartIntent(this), _contactsActivityCode);
             /*_currentLevel = 1;
             _preferencesHelper.PutCurrentLevel(this, 0);
 
             InstallLevelAndStart();*/
+        }
+
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            
+            if (requestCode == _contactsActivityCode)
+            {
+                if (data.GetBooleanExtra("languageChanged", false))
+                {
+                    Finish();
+                    StartActivity(new Intent(this, typeof(MainActivity)));
+                }
+            }
         }
 
         private void OnRemoveLayoutClicked(object sender, EventArgs e)
@@ -951,6 +966,45 @@ namespace FPOW.Droid
 
         private void ApplyCulture()
         {
+            var currentLocale = Locale.Default;
+            var selectedLocaleIndex = _preferencesHelper.GetSelectedLanguage();
+
+            if (selectedLocaleIndex != 0)
+            {
+                switch (selectedLocaleIndex)
+                {
+                    case 1:
+                        var enLocale = new Locale("en");
+                        if (currentLocale.Language != enLocale.Language)
+                        {
+                            Locale.Default = enLocale;
+                            var config = new Configuration { Locale = enLocale };
+                            BaseContext.Resources.UpdateConfiguration(config, BaseContext.Resources.DisplayMetrics);
+                        }
+                        break;
+                    case 2:
+                        var ruLocale = new Locale("ru");
+                        if (currentLocale.Language != ruLocale.Language)
+                        {
+                            Locale.Default = ruLocale;
+                            var config1 = new Configuration { Locale = ruLocale };
+                            BaseContext.Resources.UpdateConfiguration(config1, BaseContext.Resources.DisplayMetrics);
+                        }
+                        break;
+                    case 3:
+                        var esLocale = new Locale("es");
+                        if (currentLocale.Language != esLocale.Language)
+                        {
+                            Locale.Default = esLocale;
+                            var config2 = new Configuration { Locale = esLocale };
+                            BaseContext.Resources.UpdateConfiguration(config2, BaseContext.Resources.DisplayMetrics);
+                        }
+                        break;
+                }
+
+                return;
+            }
+
             // Set default culture by phone culture
             var listOfRussianLocales = new List<Locale>
             {
@@ -964,8 +1018,6 @@ namespace FPOW.Droid
                 new Locale("tt"),
                 new Locale("uz")
             };
-
-            var currentLocale = Locale.Default;
 
             if (listOfRussianLocales.Any(t => t.Language == currentLocale.Language))
             {
