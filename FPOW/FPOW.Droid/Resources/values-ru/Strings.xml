@@ -22,6 +22,8 @@
   <string name="SupportUsTitle">Поддержать нас</string>
   <string name="SupportUsText">Дорогие друзья! Вы всегда можете поддержать нас: поставив нашему приложению 5 звезд в магазине Play Market, молясь за пробуждение у людей интереса к изучению Библии, рассказывая друзьям и знакомым об этом приложении, помогая нам добровольными пожертвованиями. Спасибо вам за вашу поддержку!</string>
   <string name="AboutDonatesButton">О пожертвованиях</string>
-
+  <string name="HaveQuestionsLabel">У вас есть вопросы или предложения?</string>
+  <string name="WriteUsLabel">Напишите нам:</string>
+  <string name="AppVersionLabel">Версия приложения</string>
 
 </resources>

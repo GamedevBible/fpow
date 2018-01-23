@@ -50,25 +50,16 @@ namespace FPOW.Droid
             _contactUsLayout = FindViewById<View>(Resource.Id.contactUsLayout);
             _supportUsLayout = FindViewById<View>(Resource.Id.supportUsLayout);
 
-            _version.Text = $"Версия приложения {PackageManager.GetPackageInfo(PackageName, PackageInfoFlags.Configurations).VersionName}";
+            _version.Text = $"{Resources.GetString(Resource.String.AppVersionLabel)} {PackageManager.GetPackageInfo(PackageName, PackageInfoFlags.Configurations).VersionName}";
             
             _thanksButton.Click += OnThanksButtonClicked;
 
-            //if Landscape
-            if (WindowManager.DefaultDisplay.Rotation == SurfaceOrientation.Rotation90 || WindowManager.DefaultDisplay.Rotation == SurfaceOrientation.Rotation270)
-            {
-                string text = "<font>У вас есть вопросы или предложения? </font>" +
-                "<font>Напишите нам: </font><font color=#01A7F2>biblegamedev@gmail.com</font>";
+            var localizedPart = $"<font>{Resources.GetString(Resource.String.HaveQuestionsLabel)}</font><br>" +
+            $"<font>{Resources.GetString(Resource.String.WriteUsLabel)} </font>";
 
-                _contactUs.SetText(Html.FromHtml(text), TextView.BufferType.Spannable);
-            }
-            else
-            {
-                string text = "<font>У вас есть вопросы или предложения?</font><br>" +
-                "<font>Напишите нам: </font><font color=#00c853>biblegamedev@gmail.com</font>";
+            string text = localizedPart + "<font color=#00c853>biblegamedev@gmail.com</font>";
 
-                _contactUs.SetText(Html.FromHtml(text), TextView.BufferType.Spannable);
-            }
+            _contactUs.SetText(Html.FromHtml(text), TextView.BufferType.Spannable);
 
             var selectedLocaleIndex = _preferencesHelper.GetSelectedLanguage();
             if (selectedLocaleIndex != 0)
@@ -111,10 +102,6 @@ namespace FPOW.Droid
 
         private void OnAppVersionClicked(object sender, EventArgs e)
         {
-            if (_inactive)
-                return;
-            _inactive = true;
-
             new Android.Support.V7.App.AlertDialog.Builder(this)
                .SetItems(new[] { "English", "Русский", "Español" }, DialogClickHandler)
                 .Show();
@@ -122,6 +109,7 @@ namespace FPOW.Droid
 
         private void DialogClickHandler(object sender, DialogClickEventArgs e)
         {
+            _inactive = false;
             var currentLocale = Locale.Default;
 
             switch (e.Which)
@@ -135,6 +123,11 @@ namespace FPOW.Droid
                     Locale.Default = enLocale;
                     var config = new Configuration { Locale = enLocale };
                     BaseContext.Resources.UpdateConfiguration(config, BaseContext.Resources.DisplayMetrics);
+
+                    Intent myIntent = new Intent(this, typeof(MainActivity));
+                    myIntent.PutExtra("languageChanged", _languageChanged);
+                    SetResult(Result.Ok, myIntent);
+                    Finish();
                     break;
                 case 1:
                     var ruLocale = new Locale("ru");
@@ -145,6 +138,11 @@ namespace FPOW.Droid
                     Locale.Default = ruLocale;
                     var config1 = new Configuration { Locale = ruLocale };
                     BaseContext.Resources.UpdateConfiguration(config1, BaseContext.Resources.DisplayMetrics);
+
+                    Intent myIntent1 = new Intent(this, typeof(MainActivity));
+                    myIntent1.PutExtra("languageChanged", _languageChanged);
+                    SetResult(Result.Ok, myIntent1);
+                    Finish();
                     break;
                 case 2:
                     var spanishLocale = new Locale("es");
@@ -155,6 +153,11 @@ namespace FPOW.Droid
                     Locale.Default = spanishLocale;
                     var config2 = new Configuration { Locale = spanishLocale };
                     BaseContext.Resources.UpdateConfiguration(config2, BaseContext.Resources.DisplayMetrics);
+
+                    Intent myIntent2 = new Intent(this, typeof(MainActivity));
+                    myIntent2.PutExtra("languageChanged", _languageChanged);
+                    SetResult(Result.Ok, myIntent2);
+                    Finish();
                     break;
                 default:
                     break;
@@ -260,14 +263,6 @@ namespace FPOW.Droid
 
                 Toast.MakeText(this, Resources.GetString(Resource.String.EmailCopiedLabel), ToastLength.Short).Show();
             }
-        }
-
-        public override void OnBackPressed()
-        {
-            Intent myIntent = new Intent(this, typeof(MainActivity));
-            myIntent.PutExtra("languageChanged", _languageChanged);
-            SetResult(Result.Ok, myIntent);
-            Finish();
         }
 
         public static Intent CreateStartIntent(Context context, string message = null)

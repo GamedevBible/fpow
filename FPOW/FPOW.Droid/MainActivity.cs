@@ -506,8 +506,7 @@ namespace FPOW.Droid
             {
                 if (data.GetBooleanExtra("languageChanged", false))
                 {
-                    Finish();
-                    StartActivity(new Intent(this, typeof(MainActivity)));
+                    Recreate();
                 }
             }
         }

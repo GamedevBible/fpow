@@ -2554,6 +2554,9 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f050035
 			public const int AboutDonatesButton = 2131034165;
 			
+			// aapt resource value: 0x7f050038
+			public const int AppVersionLabel = 2131034168;
+			
 			// aapt resource value: 0x7f050022
 			public const int ApplicationName = 2131034146;
 			
@@ -2580,6 +2583,9 @@ namespace FPOW.Droid
 			
 			// aapt resource value: 0x7f050023
 			public const int GreetingsTitle = 2131034147;
+			
+			// aapt resource value: 0x7f050036
+			public const int HaveQuestionsLabel = 2131034166;
 			
 			// aapt resource value: 0x7f050021
 			public const int Hello = 2131034145;
@@ -2610,6 +2616,9 @@ namespace FPOW.Droid
 			
 			// aapt resource value: 0x7f050026
 			public const int WhatsNewTitle = 2131034150;
+			
+			// aapt resource value: 0x7f050037
+			public const int WriteUsLabel = 2131034167;
 			
 			// aapt resource value: 0x7f05002d
 			public const int YesButton = 2131034157;
