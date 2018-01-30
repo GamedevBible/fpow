@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="Hello">Hello World, Click Me!</string>
-  <string name="ApplicationName">4 photos 1 word</string>
+  <string name="ApplicationName">4 photos 1 word - Bible</string>
   <string name="GreetingsTitle">Welcome!</string>
   <string name="GreetingsMessage">Dear friend! We are very glad that you joined our application 4 photos 1 word! Find the word which is hidden in the photos and fill the answer field. Good luck!</string>
   <string name="VersionTitle">Version</string>
@@ -14,7 +14,6 @@
   <string name="HintDialogText">Open first letter?</string>
   <string name="YesButton">Yes</string>
   <string name="NoButton">No</string>
-
   <string name="EmailCopiedLabel">Email was copied</string>
   <string name="DonateTitle">Support BibleGameDev</string>
   <string name="DonateText">All the support for the BibleGameDev projects is voluntary and free of charge. To support us with your donations, you can transfer to Yandex.Money account: 410015425804928 or write us. If you wish, you can indicate your name or initials in the donation message. Thank you for your help! With your help, our new projects will be better!</string>
@@ -25,5 +24,9 @@
   <string name="HaveQuestionsLabel">Do you have questions or suggestions?</string>
   <string name="WriteUsLabel">Write us:</string>
   <string name="AppVersionLabel">App version</string>
-  
+  <string name="ThanksTitle">Thanks</string>
+  <string name="DevelopmentTitle">Development:</string>
+  <string name="GameWordsTitle">Words for game:</string>
+  <string name="ThanksBottomMessage">(here will be noted who support us)</string>
+  <string name="StartFromBeginningTitle">Start from first level?</string>
 </resources>

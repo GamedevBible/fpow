@@ -265,6 +265,7 @@ namespace FPOW.Droid
             _settingsButton.Click += OnSettingsButtonClick;
             _hintButton.Click += OnHintButtonClicked;
             _level = FindViewById<TextView>(Resource.Id.level);
+            _level.Click += OnCurrentLevelClicked;
 
             _variant1Button = FindViewById<Button>(Resource.Id.variant1Button);
             _variant2Button = FindViewById<Button>(Resource.Id.variant2Button);
@@ -345,6 +346,29 @@ namespace FPOW.Droid
             var currentLanguage = Locale.Default.Language;
 
             _currentLocale = currentLanguage == "es" ? Locales.Spain : currentLanguage == "ru" ? Locales.Russian : Locales.English;
+        }
+
+        private void OnCurrentLevelClicked(object sender, EventArgs e)
+        {
+            if (_currentLevel == 0 || _currentLevel == 1)
+                return;
+
+            var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.RightWordDialog)
+                    .SetTitle(Resources.GetString(Resource.String.StartFromBeginningTitle))
+                    .SetPositiveButton(Resources.GetString(Resource.String.YesButton), StartFromBeginnigg)
+                    .SetNegativeButton(Resources.GetString(Resource.String.NoButton), CloseDialog)
+                    .SetCancelable(false)
+                    .Create();
+
+            dialog.Show();
+        }
+
+        private void StartFromBeginnigg(object sender, EventArgs e)
+        {
+            _currentLevel = 1;
+            _preferencesHelper.PutCurrentLevel(this, 1);
+
+            InstallLevelAndStart();
         }
 
         private void OnHintButtonClicked(object sender, EventArgs e)
@@ -492,10 +516,6 @@ namespace FPOW.Droid
         private void OnSettingsButtonClick(object sender, EventArgs e)
         {
             StartActivityForResult(ContactsActivity.CreateStartIntent(this), _contactsActivityCode);
-            /*_currentLevel = 1;
-            _preferencesHelper.PutCurrentLevel(this, 0);
-
-            InstallLevelAndStart();*/
         }
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
@@ -504,7 +524,7 @@ namespace FPOW.Droid
             
             if (requestCode == _contactsActivityCode)
             {
-                if (data.GetBooleanExtra("languageChanged", false))
+                if ( data != null && data.GetBooleanExtra("languageChanged", false))
                 {
                     Recreate();
                 }

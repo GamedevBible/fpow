@@ -7,9 +7,13 @@ namespace FPOW.Droid.GameClasses
             switch (level)
             {
                 case 1:
-                    return "Hello";
+                    return "First";
                 case 2:
-                    return "Buy";
+                    return "Second";
+                case 3:
+                    return "Third";
+                case 4:
+                    return "Fourth";
                 default:
                     return string.Empty;
             }
@@ -20,9 +24,13 @@ namespace FPOW.Droid.GameClasses
             switch (level)
             {
                 case 1:
-                    return "Привет";
+                    return "Бытие";
                 case 2:
-                    return "Пока";
+                    return "Таланты";
+                case 3:
+                    return "Ева";
+                case 4:
+                    return "Давид";
                 default:
                     return string.Empty;
             }
@@ -36,6 +44,10 @@ namespace FPOW.Droid.GameClasses
                     return "Hola";
                 case 2:
                     return "Buybuy";
+                case 3:
+                    return "Treee";
+                case 4:
+                    return "Rewwq";
                 default:
                     return string.Empty;
             }

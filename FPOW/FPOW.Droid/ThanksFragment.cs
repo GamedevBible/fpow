@@ -16,18 +16,18 @@ namespace FPOW.Droid
             var view = LayoutInflater.From(Activity).Inflate(Resource.Layout.fragment_thanks, null);
 
             _thanksTextView = view.FindViewById<TextView>(Resource.Id.thanksTextView);
-            _thanksTextView.Text = "Разработка: " + "С. Ларионов (мл.)" + "\n" +
-                "Вопросы для игры: " + "С. Ларионов (ст.)" + "\n" + "\n" +
-                "Благодарности:" + "\n" + 
-                "Свиридова С." + "\n" +
-                "Фадеев И." + "\n" +
+            _thanksTextView.Text = $"{Resources.GetString(Resource.String.DevelopmentTitle)} " + "S. Larionov (Jr.)" + "\n" +
+                $"{Resources.GetString(Resource.String.GameWordsTitle)} " + "S. Larionov, V. Larionova, A. Larionova" + "\n" + "\n" +
+                $"{Resources.GetString(Resource.String.ThanksTitle)}: " + "\n" + 
+                "Sviridova S." + "\n" +
+                "Fadeev I." + "\n" +
 
-                "\n" + "(здесь будут отмечены все, оказавшие нам поддержку и помощь)";
+                "\n" + $"{Resources.GetString(Resource.String.ThanksBottomMessage)}";
 
             var dialog = new Android.Support.V7.App.AlertDialog.Builder(Activity, Resource.Style.AlertDialogTheme)
-                .SetTitle("Благодарности")
+                .SetTitle(Resources.GetString(Resource.String.ThanksTitle))
                 .SetView(view)
-                .SetPositiveButton("Закрыть", ConfirmButtonClicked)
+                .SetPositiveButton(Resources.GetString(Resource.String.CloseButton), ConfirmButtonClicked)
                 .SetCancelable(false)
                 .Create();
             

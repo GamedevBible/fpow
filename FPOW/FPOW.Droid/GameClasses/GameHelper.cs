@@ -21,7 +21,7 @@ namespace FPOW.Droid.GameClasses
                                    "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ",
                                    "Ъ", "Ы", "Ь", "Э", "Ю", "Я"};
                 case Locales.Spain:
-                    return new[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+                    return new[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "Á", "É", "Í", "Ó", "Ú", "Ü", "¡",
                                    "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
                 default:
                     return new[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
