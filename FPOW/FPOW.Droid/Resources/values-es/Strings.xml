@@ -9,7 +9,7 @@
   <string name="CloseButton">Cerrar</string>
   <string name="OkButton">DE ACUERDO</string>
   <string name="NoMoreLevelsTitle">Final temporal!</string>
-  <string name="NoMoreLevelsMessage">Estimado amigo! En este momento que haya completado todos los niveles de juego! Se agregarán nuevos niveles con nuevas actualizaciones de aplicaciones, ¡así que no se separe de nosotros! También puede iniciar un nuevo juego a través del botón "Configuración" en la esquina superior derecha de la pantalla.</string>
+  <string name="NoMoreLevelsMessage">Estimado amigo! ¡En este momento has completado todos los niveles de juego! Se agregarán nuevos niveles con nuevas actualizaciones de aplicaciones, ¡así que no se separe de nosotros! También puede comenzar un nuevo juego a través del campo de texto "Nivel actual" en la parte superior de la pantalla.</string>
   <string name="CorrectToastText">¡Correcto! Fue la palabra</string>
   <string name="HintDialogText">Abrir la primera carta?</string>
   <string name="YesButton">Sí</string>

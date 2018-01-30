@@ -9,12 +9,11 @@
   <string name="CloseButton">Закрыть</string>
   <string name="OkButton">OK</string>
   <string name="NoMoreLevelsTitle">Временный финиш!</string>
-  <string name="NoMoreLevelsMessage">Дорогой друг! На данный момент ты завершил все уровни! Следующие уровни будут добавляться через обновления приложения, так что не расставайся с нами! Также ты можешь начать игру сначала через пункт "Настройки" в верхнем правом углу экрана.</string>
+  <string name="NoMoreLevelsMessage">Дорогой друг! На данный момент ты завершил все уровни! Следующие уровни будут добавляться через обновления приложения, так что не расставайся с нами! Также ты можешь начать игру сначала нажав на текущий уровень в верхней части экрана.</string>
   <string name="CorrectToastText">Верно! Это было слово</string>
   <string name="HintDialogText">Открыть первую букву?</string>
   <string name="YesButton">Да</string>
   <string name="NoButton">Нет</string>
-  
   <string name="EmailCopiedLabel">Email был скопирован</string>
   <string name="DonateTitle">Поддержка BibleGameDev</string>
   <string name="DonateText">Вся оказываемая поддержка проектов BibleGameDev является добровольной и безвозмездной. Поддержать нас своими пожертвованиями можно переводом на счет Яндекс.Деньги: 410015425804928. По желанию, в сообщении к пожертвованию вы можете указать свое имя или инициалы. Благодарим вас за оказанную помощь! С вашей помощью наши новые проекты будут более качественными! Вы помогаете пробудить у людей интерес к изучению Библии!</string>
@@ -25,7 +24,6 @@
   <string name="HaveQuestionsLabel">У вас есть вопросы или предложения?</string>
   <string name="WriteUsLabel">Напишите нам:</string>
   <string name="AppVersionLabel">Версия приложения</string>
-
   <string name="ThanksTitle">Благодарности</string>
   <string name="DevelopmentTitle">Разработка:</string>
   <string name="GameWordsTitle">Слова для игры:</string>

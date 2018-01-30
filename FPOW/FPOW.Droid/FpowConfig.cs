@@ -1,13 +1,13 @@
-namespace FPOW.Droid
+п»їnamespace FPOW.Droid
 {
     public static class FpowConfig
     {
-        public const int COUNT_OF_LEVELS = 4;
+        public const int COUNT_OF_LEVELS = 100;
 
-        public static string WhatsNewRussianMessage = "Добавлены новые слова!";
+        public static string WhatsNewRussianMessage = "Р”РѕР±Р°РІР»РµРЅС‹ РЅРѕРІС‹Рµ СЃР»РѕРІР°!";
 
         public static string WhatsNewEnglishMessage = "Added new words!";
 
-        public static string WhatsNewSpanishMessage = "";
+        public static string WhatsNewSpanishMessage = "ВЎNuevas palabras agregadas!";
     }
 }

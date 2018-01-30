@@ -9,7 +9,7 @@
   <string name="CloseButton">Close</string>
   <string name="OkButton">OK</string>
   <string name="NoMoreLevelsTitle">Temporary finish!</string>
-  <string name="NoMoreLevelsMessage">Dear friend! At this time you have completed all game levels! New levels will be added with new application updates, so do not part with us! Also you can start new game through the "Settings" button in the upper right corner of the screen.</string>
+  <string name="NoMoreLevelsMessage">Dear friend! At this time you have completed all game levels! New levels will be added with new application updates, so do not part with us! Also you can start new game through the "Current level" text field in the upper part of the screen.</string>
   <string name="CorrectToastText">Right! It was the word</string>
   <string name="HintDialogText">Open first letter?</string>
   <string name="YesButton">Yes</string>
