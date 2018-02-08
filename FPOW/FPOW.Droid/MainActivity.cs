@@ -25,7 +25,7 @@ using Android.Runtime;
 
 namespace FPOW.Droid
 {
-    [Activity(Label = "@string/ApplicationName", Theme = "@style/AppTheme.Main", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "@string/ApplicationName", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@style/AppTheme.Main", Icon = "@drawable/icon")]
     public class MainActivity : AppCompatActivity
     {
         private const int _contactsActivityCode = 14;
@@ -141,6 +141,8 @@ namespace FPOW.Droid
 
             ApplyCulture();
             SetContentView (Resource.Layout.main);
+
+            this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
 
             InitViews();
 
@@ -357,7 +359,7 @@ namespace FPOW.Droid
                     .SetTitle(Resources.GetString(Resource.String.StartFromBeginningTitle))
                     .SetPositiveButton(Resources.GetString(Resource.String.YesButton), StartFromBeginnigg)
                     .SetNegativeButton(Resources.GetString(Resource.String.NoButton), CloseDialog)
-                    .SetCancelable(false)
+                    .SetCancelable(true)
                     .Create();
 
             dialog.Show();
@@ -377,7 +379,7 @@ namespace FPOW.Droid
                     .SetTitle(Resources.GetString(Resource.String.HintDialogText))
                     .SetPositiveButton(Resources.GetString(Resource.String.YesButton), OpenFirstLetter)
                     .SetNegativeButton(Resources.GetString(Resource.String.NoButton), CloseDialog)
-                    .SetCancelable(false)
+                    .SetCancelable(true)
                     .Create();
 
             dialog.Show();
@@ -386,6 +388,9 @@ namespace FPOW.Droid
         private void OpenFirstLetter(object sender, DialogClickEventArgs e)
         {
             SetButtonsDefault();
+
+            if (string.IsNullOrWhiteSpace(_currentWord))
+                return;
 
             var letter = _currentWord[0].ToString();
 
@@ -1077,6 +1082,13 @@ namespace FPOW.Droid
             _variant14Button.Text = newWord[13].ToString();
             _variant15Button.Text = newWord[14].ToString();
             _variant16Button.Text = newWord[15].ToString();
+        }
+
+        public static Intent CreateStartIntent(Context context, string message = null)
+        {
+            var intent = new Intent(context, typeof(MainActivity));
+            intent.SetFlags(ActivityFlags.ClearTask | ActivityFlags.NewTask);
+            return intent;
         }
 
         private void ApplyWordVisibility(int wordLength)

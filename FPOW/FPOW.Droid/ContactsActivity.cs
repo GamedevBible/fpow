@@ -7,14 +7,15 @@ using Android.Widget;
 using Android.Support.V7.App;
 using Android.Content.PM;
 using Android.Text;
-using Microsoft.Azure.Mobile.Analytics;
 using Java.Util;
 using Android.Content.Res;
 using FPOW.Droid.GameClasses;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
 
 namespace FPOW.Droid
 {
-    [Activity(Label = "ContactsActivity", Theme = "@style/AppTheme.Main", Icon = "@drawable/icon")]
+    [Activity(Label = "ContactsActivity", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@style/AppTheme.Main", Icon = "@drawable/icon")]
     public class ContactsActivity : AppCompatActivity
     {
         private PreferencesHelper _preferencesHelper;

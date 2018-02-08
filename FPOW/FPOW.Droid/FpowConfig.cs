@@ -2,7 +2,7 @@
 {
     public static class FpowConfig
     {
-        public const int COUNT_OF_LEVELS = 100;
+        public const int COUNT_OF_LEVELS = 4;
 
         public static string WhatsNewRussianMessage = "Добавлены новые слова!";
 
