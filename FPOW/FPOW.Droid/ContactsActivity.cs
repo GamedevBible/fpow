@@ -15,7 +15,7 @@ using Microsoft.AppCenter.Analytics;
 
 namespace FPOW.Droid
 {
-    [Activity(Label = "ContactsActivity", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@style/AppTheme.Main", Icon = "@drawable/icon")]
+    [Activity(Label = "ContactsActivity", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@style/AppTheme.Main", Icon = "@mipmap/ic_launcher")]
     public class ContactsActivity : AppCompatActivity
     {
         private PreferencesHelper _preferencesHelper;

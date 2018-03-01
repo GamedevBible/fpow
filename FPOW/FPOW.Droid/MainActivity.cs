@@ -25,7 +25,7 @@ using Android.Runtime;
 
 namespace FPOW.Droid
 {
-    [Activity(Label = "@string/ApplicationName", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@style/AppTheme.Main", Icon = "@drawable/icon")]
+    [Activity(Label = "@string/ApplicationName", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@style/AppTheme.Main", Icon = "@mipmap/ic_launcher")]
     public class MainActivity : AppCompatActivity
     {
         private const int _contactsActivityCode = 14;
@@ -122,7 +122,7 @@ namespace FPOW.Droid
 
             _currentLevel = _preferencesHelper.GetCurrentLevel();
 
-            //_needShowWhatsNew = true;
+            _needShowWhatsNew = FpowConfig.NeedShowWhatsNew;
 
             if (_currentLevel == 0)
             {
@@ -193,7 +193,6 @@ namespace FPOW.Droid
                 _variantsIntArray = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
                 _variant1Button.Text = _variant2Button.Text = _variant3Button.Text =
                     _variant4Button.Text = _variant5Button.Text = _variant6Button.Text =
-                    _variant1Button.Text = _variant1Button.Text = _variant1Button.Text =
                     _variant7Button.Text = _variant8Button.Text = _variant9Button.Text =
                     _variant10Button.Text = _variant11Button.Text = _variant12Button.Text =
                     _variant13Button.Text = _variant14Button.Text = _variant15Button.Text =

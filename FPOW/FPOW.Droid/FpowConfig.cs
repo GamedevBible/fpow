@@ -9,5 +9,7 @@
         public static string WhatsNewEnglishMessage = "Added new words!";
 
         public static string WhatsNewSpanishMessage = "¡Nuevas palabras agregadas!";
+
+        public static bool NeedShowWhatsNew = false;
     }
 }

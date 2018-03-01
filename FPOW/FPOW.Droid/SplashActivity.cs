@@ -6,7 +6,7 @@ using Android.Content.PM;
 
 namespace FPOW.Droid
 {
-    [Activity(Label = "@string/ApplicationName", Theme = "@style/AppTheme.Main", ScreenOrientation = ScreenOrientation.Portrait, /*Theme = "@style/ActivitySplash",*/ MainLauncher = true, Icon = "@drawable/icon"/*, NoHistory = true*/)]
+    [Activity(Label = "@string/ApplicationName", Theme = "@style/AppTheme.Main", ScreenOrientation = ScreenOrientation.Portrait, /*Theme = "@style/ActivitySplash",*/ MainLauncher = true, Icon = "@mipmap/ic_launcher"/*, NoHistory = true*/)]
     public class SplashActivity : AppCompatActivity
     {
         private bool _needStartApp = true;
