@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using Android.Runtime;
+using Microsoft.AppCenter.Analytics;
 
 /* Перед обновлением:
  * - Проверить сколько уровней, и если надо изменить константу
@@ -200,6 +201,9 @@ namespace FPOW.Droid
                 _level.Text = $"{FpowConfig.COUNT_OF_LEVELS} / {FpowConfig.COUNT_OF_LEVELS}";
                 return;
             }
+
+            if (_currentLevel == 100)
+                Analytics.TrackEvent("User got 100 levels");
 
             _currentWord = _currentLocale == Locales.English 
                     ? GameWords.GetEnglishWord(_currentLevel) 

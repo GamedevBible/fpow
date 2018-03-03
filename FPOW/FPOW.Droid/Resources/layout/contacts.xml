@@ -19,7 +19,7 @@
           android:layout_height="100dp"
           android:layout_gravity="center"
           android:background="@color/transparent"
-          android:src="@drawable/Icon"/>
+          android:src="@drawable/fpow_splash"/>
     </FrameLayout>
     <View
       android:layout_width="match_parent"
