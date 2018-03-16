@@ -4,6 +4,10 @@
     {
         public const int COUNT_OF_LEVELS = 100;
 
+        public const int MinutesBetweenFirstHints = 5;
+
+        public const int MinutesBetweenSecondHints = 10;
+
         public static string WhatsNewRussianMessage = "Добавлены новые слова!";
 
         public static string WhatsNewEnglishMessage = "Added new words!";

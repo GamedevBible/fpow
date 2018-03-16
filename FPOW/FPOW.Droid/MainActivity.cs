@@ -370,155 +370,256 @@ namespace FPOW.Droid
 
         private void StartFromBeginnigg(object sender, EventArgs e)
         {
-            _currentLevel = 1;
+            _currentLevel = 98;
             _preferencesHelper.PutCurrentLevel(this, 1);
+            _preferencesHelper.PutCountOfOpenedLetters(this, 0);
+            _preferencesHelper.PutDateAndTimeOfHint(this, DateTime.MinValue);
 
             InstallLevelAndStart();
         }
 
         private void OnHintButtonClicked(object sender, EventArgs e)
         {
-            var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.RightWordDialog)
+            if (_currentLevel > FpowConfig.COUNT_OF_LEVELS)
+                return;
+
+            var countOfOpenedLetters = _preferencesHelper.GetCountOfOpenedLetters();
+            if (countOfOpenedLetters == 0)
+            {
+                var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.RightWordDialog)
                     .SetTitle(Resources.GetString(Resource.String.HintDialogText))
-                    .SetPositiveButton(Resources.GetString(Resource.String.YesButton), OpenFirstLetter)
+                    .SetPositiveButton(Resources.GetString(Resource.String.YesButton), (o, a) =>
+                    {
+                        OpenLetter(countOfOpenedLetters);
+                    })
                     .SetNegativeButton(Resources.GetString(Resource.String.NoButton), CloseDialog)
                     .SetCancelable(true)
                     .Create();
 
-            dialog.Show();
+                dialog.Show();
+                return;
+            }
+
+            if (countOfOpenedLetters == 1 || countOfOpenedLetters == 2)
+            {
+                var _dateAndTimeOfHint = _preferencesHelper.GetDateAndTimeOfHint();
+                var now = DateTime.Now;
+
+                if ((now - _dateAndTimeOfHint).TotalMinutes < FpowConfig.MinutesBetweenFirstHints)
+                {
+                    var minutes = Math.Truncate(FpowConfig.MinutesBetweenFirstHints - (now - _dateAndTimeOfHint).TotalMinutes);
+                    var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.RightWordDialog)
+                    .SetTitle(minutes >= 1 ? string.Format(Resources.GetString(Resource.String.HintNotAvailableText), $"{minutes}") : Resources.GetString(Resource.String.HintWillBeLessMinute))
+                    .SetNegativeButton(Resources.GetString(Resource.String.CloseButton), CloseDialog)
+                    .SetCancelable(true)
+                    .Create();
+
+                    dialog.Show();
+                    return;
+                }
+                else
+                {
+                    var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.RightWordDialog)
+                    .SetTitle(Resources.GetString(Resource.String.OpenNextHintText))
+                    .SetPositiveButton(Resources.GetString(Resource.String.YesButton), (o, a) =>
+                    {
+                        OpenLetter(countOfOpenedLetters);
+                    })
+                    .SetNegativeButton(Resources.GetString(Resource.String.NoButton), CloseDialog)
+                    .SetCancelable(true)
+                    .Create();
+
+                    dialog.Show();
+                    return;
+                }
+            }
+
+            if (countOfOpenedLetters == 3)
+            {
+                var _dateAndTimeOfHint = _preferencesHelper.GetDateAndTimeOfHint();
+                var now = DateTime.Now;
+
+                if ((now - _dateAndTimeOfHint).TotalMinutes < FpowConfig.MinutesBetweenSecondHints)
+                {
+                    var minutes = Math.Truncate(FpowConfig.MinutesBetweenSecondHints - (now - _dateAndTimeOfHint).TotalMinutes);
+                    var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.RightWordDialog)
+                    .SetTitle(minutes >= 1 ? string.Format(Resources.GetString(Resource.String.HintNotAvailableText), $"{minutes}") : Resources.GetString(Resource.String.HintWillBeLessMinute))
+                    .SetNegativeButton(Resources.GetString(Resource.String.CloseButton), CloseDialog)
+                    .SetCancelable(true)
+                    .Create();
+
+                    dialog.Show();
+                    return;
+                }
+                else
+                {
+                    var dialog = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.RightWordDialog)
+                    .SetTitle(Resources.GetString(Resource.String.OpenNextHintText))
+                    .SetPositiveButton(Resources.GetString(Resource.String.YesButton), (o, a) =>
+                    {
+                        OpenLetter(countOfOpenedLetters);
+                    })
+                    .SetNegativeButton(Resources.GetString(Resource.String.NoButton), CloseDialog)
+                    .SetCancelable(true)
+                    .Create();
+
+                    dialog.Show();
+                    return;
+                }
+            }
+
+            var dialog1 = new Android.Support.V7.App.AlertDialog.Builder(this, Resource.Style.RightWordDialog)
+                    .SetTitle(Resources.GetString(Resource.String.OpenNextHintText))
+                    .SetPositiveButton(Resources.GetString(Resource.String.YesButton), (o, a) =>
+                    {
+                        OpenLetter(countOfOpenedLetters);
+                    })
+                    .SetNegativeButton(Resources.GetString(Resource.String.NoButton), CloseDialog)
+                    .SetCancelable(true)
+                    .Create();
+
+            dialog1.Show();
         }
 
-        private void OpenFirstLetter(object sender, DialogClickEventArgs e)
+        private void OpenLetter(int countOfOpenedLetters)
         {
+            if (string.IsNullOrWhiteSpace(_currentWord) || countOfOpenedLetters == _currentWord.Length)
+                return;
+
             SetButtonsDefault();
-
-            if (string.IsNullOrWhiteSpace(_currentWord))
-                return;
-
-            var letter = _currentWord[0].ToString();
-
-            if (_variant1Button.Text == letter)
-            {
-                ProcessFirstLetter(0, letter);
-                _variant1Layout.Enabled = false;
-                _variant1Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                return;
-            }
-            if (_variant2Button.Text == letter)
-            {
-                ProcessFirstLetter(1, letter);
-                _variant2Layout.Enabled = false;
-                _variant2Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                return;
-            }
-            if (_variant3Button.Text == letter)
-            {
-                ProcessFirstLetter(2, letter);
-                _variant3Layout.Enabled = false;
-                _variant3Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                return;
-            }
-            if (_variant4Button.Text == letter)
-            {
-                ProcessFirstLetter(3, letter);
-                _variant4Layout.Enabled = false;
-                _variant4Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                return;
-            }
-            if (_variant5Button.Text == letter)
-            {
-                ProcessFirstLetter(4, letter);
-                _variant5Layout.Enabled = false;
-                _variant5Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                return;
-            }
-            if (_variant6Button.Text == letter)
-            {
-                ProcessFirstLetter(5, letter);
-                _variant6Layout.Enabled = false;
-                _variant6Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                return;
-            }
-            if (_variant7Button.Text == letter)
-            {
-                ProcessFirstLetter(6, letter);
-                _variant7Layout.Enabled = false;
-                _variant7Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                return;
-            }
-            if (_variant8Button.Text == letter)
-            {
-                ProcessFirstLetter(7, letter);
-                _variant8Layout.Enabled = false;
-                _variant8Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                return;
-            }
-            if (_variant9Button.Text == letter)
-            {
-                ProcessFirstLetter(8, letter);
-                _variant9Layout.Enabled = false;
-                _variant9Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                return;
-            }
-            if (_variant10Button.Text == letter)
-            {
-                ProcessFirstLetter(9, letter);
-                _variant10Layout.Enabled = false;
-                _variant10Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                return;
-            }
-            if (_variant11Button.Text == letter)
-            {
-                ProcessFirstLetter(10, letter);
-                _variant11Layout.Enabled = false;
-                _variant11Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                return;
-            }
-            if (_variant12Button.Text == letter)
-            {
-                ProcessFirstLetter(11, letter);
-                _variant12Layout.Enabled = false;
-                _variant12Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                return;
-            }
-            if (_variant13Button.Text == letter)
-            {
-                ProcessFirstLetter(12, letter);
-                _variant13Layout.Enabled = false;
-                _variant13Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                return;
-            }
-            if (_variant14Button.Text == letter)
-            {
-                ProcessFirstLetter(13, letter);
-                _variant14Layout.Enabled = false;
-                _variant14Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                return;
-            }
-            if (_variant15Button.Text == letter)
-            {
-                ProcessFirstLetter(14, letter);
-                _variant15Layout.Enabled = false;
-                _variant15Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                return;
-            }
-            if (_variant16Button.Text == letter)
-            {
-                ProcessFirstLetter(15, letter);
-                _variant16Layout.Enabled = false;
-                _variant16Button.SetBackgroundResource(Resource.Drawable.button_disabled);
-                return;
-            }
-        }
-
-        private void ProcessFirstLetter(int numberOfVariant, string letter)
-        {
             _variantsIntArray = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             EnableAllButtons();
             ClearWordArea();
 
-            _word1button.Text = letter.ToString();
-            _variantsIntArray[numberOfVariant] = 1;
+            countOfOpenedLetters++;
+            _preferencesHelper.PutCountOfOpenedLetters(this, countOfOpenedLetters);
+            _preferencesHelper.PutDateAndTimeOfHint(this, DateTime.Now);
+
+            for (int i = 0; i < countOfOpenedLetters; i++)
+            {
+                var letter = _currentWord[i].ToString();            
+
+                if (_variant1Button.Text == letter && _variant1Layout.Enabled)
+                {
+                    ProcessHintLetter(0, letter, i + 1);
+                    _variant1Layout.Enabled = false;
+                    _variant1Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                } else if (_variant2Button.Text == letter && _variant2Layout.Enabled)
+                {
+                    ProcessHintLetter(1, letter, i + 1);
+                    _variant2Layout.Enabled = false;
+                    _variant2Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                } else if (_variant3Button.Text == letter && _variant3Layout.Enabled)
+                {
+                    ProcessHintLetter(2, letter, i + 1);
+                    _variant3Layout.Enabled = false;
+                    _variant3Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                } else if (_variant4Button.Text == letter && _variant4Layout.Enabled)
+                {
+                    ProcessHintLetter(3, letter, i + 1);
+                    _variant4Layout.Enabled = false;
+                    _variant4Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                } else if (_variant5Button.Text == letter && _variant5Layout.Enabled)
+                {
+                    ProcessHintLetter(4, letter, i + 1);
+                    _variant5Layout.Enabled = false;
+                    _variant5Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                } else if (_variant6Button.Text == letter && _variant6Layout.Enabled)
+                {
+                    ProcessHintLetter(5, letter, i + 1);
+                    _variant6Layout.Enabled = false;
+                    _variant6Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                } else if (_variant7Button.Text == letter && _variant7Layout.Enabled)
+                {
+                    ProcessHintLetter(6, letter, i + 1);
+                    _variant7Layout.Enabled = false;
+                    _variant7Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                } else if (_variant8Button.Text == letter && _variant8Layout.Enabled)
+                {
+                    ProcessHintLetter(7, letter, i + 1);
+                    _variant8Layout.Enabled = false;
+                    _variant8Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                } else if (_variant9Button.Text == letter && _variant9Layout.Enabled)
+                {
+                    ProcessHintLetter(8, letter, i + 1);
+                    _variant9Layout.Enabled = false;
+                    _variant9Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                } else if (_variant10Button.Text == letter && _variant10Layout.Enabled)
+                {
+                    ProcessHintLetter(9, letter, i + 1);
+                    _variant10Layout.Enabled = false;
+                    _variant10Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                } else if (_variant11Button.Text == letter && _variant11Layout.Enabled)
+                {
+                    ProcessHintLetter(10, letter, i + 1);
+                    _variant11Layout.Enabled = false;
+                    _variant11Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                } else if (_variant12Button.Text == letter && _variant12Layout.Enabled)
+                {
+                    ProcessHintLetter(11, letter, i + 1);
+                    _variant12Layout.Enabled = false;
+                    _variant12Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                } else if (_variant13Button.Text == letter && _variant13Layout.Enabled)
+                {
+                    ProcessHintLetter(12, letter, i + 1);
+                    _variant13Layout.Enabled = false;
+                    _variant13Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                } else if (_variant14Button.Text == letter && _variant14Layout.Enabled)
+                {
+                    ProcessHintLetter(13, letter, i + 1);
+                    _variant14Layout.Enabled = false;
+                    _variant14Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                } else if (_variant15Button.Text == letter && _variant15Layout.Enabled)
+                {
+                    ProcessHintLetter(14, letter, i + 1);
+                    _variant15Layout.Enabled = false;
+                    _variant15Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                } else if (_variant16Button.Text == letter && _variant16Layout.Enabled)
+                {
+                    ProcessHintLetter(15, letter, i + 1);
+                    _variant16Layout.Enabled = false;
+                    _variant16Button.SetBackgroundResource(Resource.Drawable.button_disabled);
+                }
+            }
+        }
+
+        private void ProcessHintLetter(int numberOfVariant, string letter, int currentPosition)
+        {
+            switch (currentPosition)
+            {
+                case 1:
+                    _word1button.Text = letter.ToString();
+                    break;
+                case 2:
+                    _word2button.Text = letter.ToString();
+                    break;
+                case 3:
+                    _word3button.Text = letter.ToString();
+                    break;
+                case 4:
+                    _word4button.Text = letter.ToString();
+                    break;
+                case 5:
+                    _word5button.Text = letter.ToString();
+                    break;
+                case 6:
+                    _word6button.Text = letter.ToString();
+                    break;
+                case 7:
+                    _word7button.Text = letter.ToString();
+                    break;
+                case 8:
+                    _word8button.Text = letter.ToString();
+                    break;
+                case 9:
+                    _word9button.Text = letter.ToString();
+                    break;
+            }
+            
+            _variantsIntArray[numberOfVariant] = currentPosition;
+
+            if (currentPosition == _currentWord.Length)
+                InstallNextWord();
         }
 
         private void OnSettingsButtonClick(object sender, EventArgs e)
@@ -931,6 +1032,8 @@ namespace FPOW.Droid
             _currentLevel++;
 
             _preferencesHelper.PutCurrentLevel(this, _currentLevel);
+            _preferencesHelper.PutCountOfOpenedLetters(this, 0);
+            _preferencesHelper.PutDateAndTimeOfHint(this, DateTime.MinValue);
         }
 
         private void OnRightAnswerDialogDismissed(object sender, EventArgs e)

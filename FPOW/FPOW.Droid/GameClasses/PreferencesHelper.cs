@@ -1,5 +1,6 @@
 using Android.Content;
 using Android.Preferences;
+using System;
 
 namespace FPOW.Droid.GameClasses
 {
@@ -10,6 +11,8 @@ namespace FPOW.Droid.GameClasses
         private int _currentLevel;
         private int _selectedLanguage;
         private string _lastVersion;
+        private long _dateAndTimeOfHint;
+        private int _countOfOpenedLetters;
 
         public PreferencesHelper()
         {
@@ -27,6 +30,8 @@ namespace FPOW.Droid.GameClasses
             _lastVersion = _prefs.GetString("lastVersion", string.Empty);
             _selectedLanguage = _prefs.GetInt("selectedLanguage", 0);
             _currentLevel = _prefs.GetInt("currentLevel", 0);
+            _dateAndTimeOfHint = _prefs.GetLong("dateAndTimeOfHint", -1);
+            _countOfOpenedLetters = _prefs.GetInt("countOfOpenedLetters", 0);
         }
 
         public string GetLastVersion()
@@ -78,6 +83,45 @@ namespace FPOW.Droid.GameClasses
                 _editor = _prefs.Edit();
 
             _editor.PutInt("currentLevel", level);
+            _editor.Commit();
+        }
+
+        public DateTime GetDateAndTimeOfHint()
+        {
+            if (_dateAndTimeOfHint == -1)
+                return DateTime.MinValue;
+
+            return new DateTime(_dateAndTimeOfHint);
+        }
+
+        public void PutDateAndTimeOfHint(Context context, DateTime dateTime)
+        {
+            if (_prefs == null)
+                _prefs = PreferenceManager.GetDefaultSharedPreferences(context);
+
+            if (_editor == null)
+                _editor = _prefs.Edit();
+
+            _dateAndTimeOfHint = dateTime.Ticks;
+            _editor.PutLong("dateAndTimeOfHint", dateTime.Ticks);
+            _editor.Commit();
+        }
+
+        public int GetCountOfOpenedLetters()
+        {
+            return _countOfOpenedLetters;
+        }
+
+        public void PutCountOfOpenedLetters(Context context, int countOfLetters)
+        {
+            if (_prefs == null)
+                _prefs = PreferenceManager.GetDefaultSharedPreferences(context);
+
+            if (_editor == null)
+                _editor = _prefs.Edit();
+
+            _countOfOpenedLetters = countOfLetters;
+            _editor.PutInt("countOfOpenedLetters", countOfLetters);
             _editor.Commit();
         }
     }

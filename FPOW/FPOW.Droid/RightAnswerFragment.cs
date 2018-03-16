@@ -30,7 +30,7 @@ namespace FPOW.Droid
 
             var dialog = new Android.Support.V7.App.AlertDialog.Builder(Activity, Resource.Style.RightWordDialog)
                 .SetView(view)
-                .SetPositiveButton(Resources.GetString(Resource.String.CloseButton), CloseDialog)
+                .SetPositiveButton(Resources.GetString(Resource.String.OkButton), CloseDialog)
                 .SetCancelable(false)
                 .Create();
             

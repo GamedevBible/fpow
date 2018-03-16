@@ -3773,6 +3773,12 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f06002c
 			public const int HintDialogText = 2131099692;
 			
+			// aapt resource value: 0x7f06003e
+			public const int HintNotAvailableText = 2131099710;
+			
+			// aapt resource value: 0x7f060040
+			public const int HintWillBeLessMinute = 2131099712;
+			
 			// aapt resource value: 0x7f06002e
 			public const int NoButton = 2131099694;
 			
@@ -3784,6 +3790,9 @@ namespace FPOW.Droid
 			
 			// aapt resource value: 0x7f060028
 			public const int OkButton = 2131099688;
+			
+			// aapt resource value: 0x7f06003f
+			public const int OpenNextHintText = 2131099711;
 			
 			// aapt resource value: 0x7f06003d
 			public const int StartFromBeginningTitle = 2131099709;

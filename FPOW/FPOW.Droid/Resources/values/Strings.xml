@@ -29,4 +29,7 @@
   <string name="GameWordsTitle">Words for game:</string>
   <string name="ThanksBottomMessage">(here will be noted who support us)</string>
   <string name="StartFromBeginningTitle">Start from first level?</string>
+  <string name="HintNotAvailableText">Next hint will be available in {0} minute(s)</string>
+  <string name="OpenNextHintText">Open next letter?</string>
+  <string name="HintWillBeLessMinute">Hint will be available in a few seconds</string>
 </resources>

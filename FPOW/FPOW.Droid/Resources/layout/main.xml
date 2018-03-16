@@ -255,8 +255,8 @@
                 android:textColor="@android:color/white"
             android:id="@+id/word_remove_button"
             android:text="-="
-            android:layout_width="24dp"
-            android:layout_height="26dp" />
+            android:layout_width="30dp"
+            android:layout_height="32dp" />
       </FrameLayout>
       
     </LinearLayout>

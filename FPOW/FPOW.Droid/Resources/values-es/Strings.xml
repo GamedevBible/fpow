@@ -29,4 +29,7 @@
   <string name="GameWordsTitle">Palabras para el juego:</string>
   <string name="ThanksBottomMessage">(se notará quién nos apoya)</string>
   <string name="StartFromBeginningTitle">¿Empezar desde el primer nivel?</string>
+  <string name="HintNotAvailableText">Cantidad de minutos para el próximo aviso: {0}</string>
+  <string name="OpenNextHintText">Quieres abrir la siguiente carta?</string>
+  <string name="HintWillBeLessMinute">La información sobre herramientas estará disponible en unos pocos segundos</string>
 </resources>

@@ -3,6 +3,9 @@ using Android.OS;
 using Android.Support.V7.App;
 using System.Threading.Tasks;
 using Android.Content.PM;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace FPOW.Droid
 {
@@ -32,8 +35,8 @@ namespace FPOW.Droid
         {
             base.OnResume();
             
-            /*AppCenter.Start("e58a932f-6903-4570-b150-be7798b4a9df",
-                   typeof(Analytics), typeof(Crashes));*/ // PLAY MARKET
+            AppCenter.Start("e58a932f-6903-4570-b150-be7798b4a9df",
+                   typeof(Analytics), typeof(Crashes)); // PLAY MARKET
 
             if (!_needStartApp)
             {
