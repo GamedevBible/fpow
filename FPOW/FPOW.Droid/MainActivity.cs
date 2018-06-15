@@ -370,7 +370,7 @@ namespace FPOW.Droid
 
         private void StartFromBeginnigg(object sender, EventArgs e)
         {
-            _currentLevel = 98;
+            _currentLevel = 1;
             _preferencesHelper.PutCurrentLevel(this, 1);
             _preferencesHelper.PutCountOfOpenedLetters(this, 0);
             _preferencesHelper.PutDateAndTimeOfHint(this, DateTime.MinValue);
