@@ -1,9 +1,20 @@
+using Android.Content;
+using Android.Content.Res;
+
 namespace FPOW.Droid.GameClasses
 {
     internal static class GameImages
     {
-        public static int[] GetGameImages(int level)
+        public static int[] GetGameImages(Context context, int level)
         {
+            if (level > 100)
+            {
+                return new int[] { context.Resources.GetIdentifier($"img_{level}_1", "drawable", context.PackageName),
+                        context.Resources.GetIdentifier($"img_{level}_2", "drawable", context.PackageName),
+                        context.Resources.GetIdentifier($"img_{level}_3", "drawable", context.PackageName),
+                        context.Resources.GetIdentifier($"img_{level}_4", "drawable", context.PackageName) };
+            }
+
             switch (level)
             {
                 case 1:

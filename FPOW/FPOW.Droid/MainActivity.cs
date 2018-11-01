@@ -90,6 +90,7 @@ namespace FPOW.Droid
 
         private AppCompatImageButton _hintButton;
         private AppCompatImageButton _settingsButton;
+        private AppCompatImageButton _otherGamesButton;
         private TextView _level;
 
         private ImageView _image1View;
@@ -238,7 +239,7 @@ namespace FPOW.Droid
         {
             int[] images = new int[] { };
 
-            images = GameImages.GetGameImages(_currentLevel);
+            images = GameImages.GetGameImages(this, _currentLevel);
 
             _image1View.SetImageResource(images[0]);
             _image2View.SetImageResource(images[1]);
@@ -267,8 +268,10 @@ namespace FPOW.Droid
 
             _hintButton = FindViewById<AppCompatImageButton>(Resource.Id.hintButton);
             _settingsButton = FindViewById<AppCompatImageButton>(Resource.Id.settingsButton);
+            _otherGamesButton = FindViewById<AppCompatImageButton>(Resource.Id.otherGamesButton);
             _settingsButton.Click += OnSettingsButtonClick;
             _hintButton.Click += OnHintButtonClicked;
+            _otherGamesButton.Click += OnOtherGamesClicked;
             _level = FindViewById<TextView>(Resource.Id.level);
             _level.Click += OnCurrentLevelClicked;
 
@@ -351,6 +354,11 @@ namespace FPOW.Droid
             var currentLanguage = Locale.Default.Language;
 
             _currentLocale = currentLanguage == "es" ? Locales.Spain : currentLanguage == "ru" ? Locales.Russian : Locales.English;
+        }
+
+        private void OnOtherGamesClicked(object sender, EventArgs e)
+        {
+            StartActivity(MoreGamesActivity.CreateStartIntent(this));
         }
 
         private void OnCurrentLevelClicked(object sender, EventArgs e)

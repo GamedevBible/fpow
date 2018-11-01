@@ -47,7 +47,21 @@
           android:orientation="horizontal">
       <android.support.v7.widget.AppCompatImageButton
             android:background="?attr/selectableItemBackground"
-            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="2dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/otherGamesButton"
+            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+            app:srcCompat="@drawable/gamepad_variant"/>
+      <android.support.v7.widget.AppCompatImageButton
+            android:background="?attr/selectableItemBackground"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="0dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:id="@+id/settingsButton"
