@@ -50,6 +50,7 @@ namespace FPOW.Droid
             _lessonsLayout = FindViewById<View>(Resource.Id.lessonsLayout);
             _contactUsLayout = FindViewById<View>(Resource.Id.contactUsLayout);
             _supportUsLayout = FindViewById<View>(Resource.Id.supportUsLayout);
+            _supportUsLayout.Visibility = ViewStates.Gone;
 
             _version.Text = $"{Resources.GetString(Resource.String.AppVersionLabel)} {PackageManager.GetPackageInfo(PackageName, PackageInfoFlags.Configurations).VersionName}";
             

@@ -149,12 +149,6 @@
           android:textColor="@color/dark_gray"
           android:text="Поддержать нас :)"/>
     </FrameLayout>
-    <View
-      android:layout_width="match_parent"
-      android:layout_below="@+id/supportUsLayout"
-      android:id="@+id/separator4"
-      android:layout_height="1dp"
-      android:background="@color/lighter_gray"/>
     <android.support.v7.widget.AppCompatImageButton
             android:background="?attr/selectableItemBackground"
             android:layout_width="60dp"

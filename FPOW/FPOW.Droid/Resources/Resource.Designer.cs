@@ -3580,8 +3580,8 @@ namespace FPOW.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0b00ae
-			public const int action0 = 2131427502;
+			// aapt resource value: 0x7f0b00ad
+			public const int action0 = 2131427501;
 			
 			// aapt resource value: 0x7f0b0047
 			public const int action_bar = 2131427399;
@@ -3604,17 +3604,17 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b0024
 			public const int action_bar_title = 2131427364;
 			
-			// aapt resource value: 0x7f0b00ab
-			public const int action_container = 2131427499;
+			// aapt resource value: 0x7f0b00aa
+			public const int action_container = 2131427498;
 			
 			// aapt resource value: 0x7f0b0048
 			public const int action_context_bar = 2131427400;
 			
-			// aapt resource value: 0x7f0b00b2
-			public const int action_divider = 2131427506;
+			// aapt resource value: 0x7f0b00b1
+			public const int action_divider = 2131427505;
 			
-			// aapt resource value: 0x7f0b00ac
-			public const int action_image = 2131427500;
+			// aapt resource value: 0x7f0b00ab
+			public const int action_image = 2131427499;
 			
 			// aapt resource value: 0x7f0b0002
 			public const int action_menu_divider = 2131427330;
@@ -3631,11 +3631,11 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b0026
 			public const int action_mode_close_button = 2131427366;
 			
-			// aapt resource value: 0x7f0b00ad
-			public const int action_text = 2131427501;
+			// aapt resource value: 0x7f0b00ac
+			public const int action_text = 2131427500;
 			
-			// aapt resource value: 0x7f0b00bb
-			public const int actions = 2131427515;
+			// aapt resource value: 0x7f0b00ba
+			public const int actions = 2131427514;
 			
 			// aapt resource value: 0x7f0b0027
 			public const int activity_chooser_view_content = 2131427367;
@@ -3655,44 +3655,44 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b001a
 			public const int beginning = 2131427354;
 			
-			// aapt resource value: 0x7f0b00aa
-			public const int bmButton = 2131427498;
-			
 			// aapt resource value: 0x7f0b00a9
-			public const int bmtext = 2131427497;
+			public const int bmButton = 2131427497;
 			
 			// aapt resource value: 0x7f0b00a8
-			public const int bmtitletext = 2131427496;
+			public const int bmtext = 2131427496;
+			
+			// aapt resource value: 0x7f0b00a7
+			public const int bmtitletext = 2131427495;
 			
 			// aapt resource value: 0x7f0b0022
 			public const int bottom = 2131427362;
 			
-			// aapt resource value: 0x7f0b0063
-			public const int bottomView = 2131427427;
+			// aapt resource value: 0x7f0b0062
+			public const int bottomView = 2131427426;
 			
 			// aapt resource value: 0x7f0b002e
 			public const int buttonPanel = 2131427374;
 			
-			// aapt resource value: 0x7f0b0070
-			public const int buttonsLayout = 2131427440;
-			
-			// aapt resource value: 0x7f0b00a7
-			public const int bwButton = 2131427495;
+			// aapt resource value: 0x7f0b006f
+			public const int buttonsLayout = 2131427439;
 			
 			// aapt resource value: 0x7f0b00a6
-			public const int bwtext = 2131427494;
+			public const int bwButton = 2131427494;
 			
 			// aapt resource value: 0x7f0b00a5
-			public const int bwtitletext = 2131427493;
+			public const int bwtext = 2131427493;
 			
-			// aapt resource value: 0x7f0b00af
-			public const int cancel_action = 2131427503;
+			// aapt resource value: 0x7f0b00a4
+			public const int bwtitletext = 2131427492;
+			
+			// aapt resource value: 0x7f0b00ae
+			public const int cancel_action = 2131427502;
 			
 			// aapt resource value: 0x7f0b003e
 			public const int checkbox = 2131427390;
 			
-			// aapt resource value: 0x7f0b00b7
-			public const int chronometer = 2131427511;
+			// aapt resource value: 0x7f0b00b6
+			public const int chronometer = 2131427510;
 			
 			// aapt resource value: 0x7f0b001e
 			public const int collapseActionView = 2131427358;
@@ -3727,8 +3727,8 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b001b
 			public const int end = 2131427355;
 			
-			// aapt resource value: 0x7f0b00c1
-			public const int end_padder = 2131427521;
+			// aapt resource value: 0x7f0b00c0
+			public const int end_padder = 2131427520;
 			
 			// aapt resource value: 0x7f0b0028
 			public const int expand_activities_button = 2131427368;
@@ -3736,11 +3736,11 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b003d
 			public const int expanded_menu = 2131427389;
 			
-			// aapt resource value: 0x7f0b006b
-			public const int gameView = 2131427435;
+			// aapt resource value: 0x7f0b006a
+			public const int gameView = 2131427434;
 			
-			// aapt resource value: 0x7f0b0067
-			public const int hintButton = 2131427431;
+			// aapt resource value: 0x7f0b0066
+			public const int hintButton = 2131427430;
 			
 			// aapt resource value: 0x7f0b0004
 			public const int home = 2131427332;
@@ -3751,8 +3751,8 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b002c
 			public const int icon = 2131427372;
 			
-			// aapt resource value: 0x7f0b00bc
-			public const int icon_group = 2131427516;
+			// aapt resource value: 0x7f0b00bb
+			public const int icon_group = 2131427515;
 			
 			// aapt resource value: 0x7f0b001f
 			public const int ifRoom = 2131427359;
@@ -3760,20 +3760,20 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b0029
 			public const int image = 2131427369;
 			
+			// aapt resource value: 0x7f0b006b
+			public const int image1View = 2131427435;
+			
 			// aapt resource value: 0x7f0b006c
-			public const int image1View = 2131427436;
+			public const int image2View = 2131427436;
 			
 			// aapt resource value: 0x7f0b006d
-			public const int image2View = 2131427437;
+			public const int image3View = 2131427437;
 			
 			// aapt resource value: 0x7f0b006e
-			public const int image3View = 2131427438;
+			public const int image4View = 2131427438;
 			
-			// aapt resource value: 0x7f0b006f
-			public const int image4View = 2131427439;
-			
-			// aapt resource value: 0x7f0b00b8
-			public const int info = 2131427512;
+			// aapt resource value: 0x7f0b00b7
+			public const int info = 2131427511;
 			
 			// aapt resource value: 0x7f0b005a
 			public const int lessons = 2131427418;
@@ -3781,14 +3781,14 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b0059
 			public const int lessonsLayout = 2131427417;
 			
-			// aapt resource value: 0x7f0b0068
-			public const int level = 2131427432;
+			// aapt resource value: 0x7f0b0067
+			public const int level = 2131427431;
 			
-			// aapt resource value: 0x7f0b00bd
-			public const int line1 = 2131427517;
+			// aapt resource value: 0x7f0b00bc
+			public const int line1 = 2131427516;
 			
-			// aapt resource value: 0x7f0b00bf
-			public const int line3 = 2131427519;
+			// aapt resource value: 0x7f0b00be
+			public const int line3 = 2131427518;
 			
 			// aapt resource value: 0x7f0b0009
 			public const int listMode = 2131427337;
@@ -3796,8 +3796,8 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b002b
 			public const int list_item = 2131427371;
 			
-			// aapt resource value: 0x7f0b00b1
-			public const int media_actions = 2131427505;
+			// aapt resource value: 0x7f0b00b0
+			public const int media_actions = 2131427504;
 			
 			// aapt resource value: 0x7f0b001c
 			public const int middle = 2131427356;
@@ -3814,17 +3814,17 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b000a
 			public const int normal = 2131427338;
 			
-			// aapt resource value: 0x7f0b00ba
-			public const int notification_background = 2131427514;
-			
-			// aapt resource value: 0x7f0b00b4
-			public const int notification_main_column = 2131427508;
+			// aapt resource value: 0x7f0b00b9
+			public const int notification_background = 2131427513;
 			
 			// aapt resource value: 0x7f0b00b3
-			public const int notification_main_column_container = 2131427507;
+			public const int notification_main_column = 2131427507;
 			
-			// aapt resource value: 0x7f0b0069
-			public const int otherGamesButton = 2131427433;
+			// aapt resource value: 0x7f0b00b2
+			public const int notification_main_column_container = 2131427506;
+			
+			// aapt resource value: 0x7f0b0068
+			public const int otherGamesButton = 2131427432;
 			
 			// aapt resource value: 0x7f0b0030
 			public const int parentPanel = 2131427376;
@@ -3838,11 +3838,11 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b0040
 			public const int radio = 2131427392;
 			
-			// aapt resource value: 0x7f0b00b9
-			public const int right_icon = 2131427513;
+			// aapt resource value: 0x7f0b00b8
+			public const int right_icon = 2131427512;
 			
-			// aapt resource value: 0x7f0b00b5
-			public const int right_side = 2131427509;
+			// aapt resource value: 0x7f0b00b4
+			public const int right_side = 2131427508;
 			
 			// aapt resource value: 0x7f0b0015
 			public const int screen = 2131427349;
@@ -3901,11 +3901,8 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b005e
 			public const int separator3 = 2131427422;
 			
-			// aapt resource value: 0x7f0b0061
-			public const int separator4 = 2131427425;
-			
-			// aapt resource value: 0x7f0b006a
-			public const int settingsButton = 2131427434;
+			// aapt resource value: 0x7f0b0069
+			public const int settingsButton = 2131427433;
 			
 			// aapt resource value: 0x7f0b003f
 			public const int shortcut = 2131427391;
@@ -3934,8 +3931,8 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b0018
 			public const int src_over = 2131427352;
 			
-			// aapt resource value: 0x7f0b00b0
-			public const int status_bar_latest_event_content = 2131427504;
+			// aapt resource value: 0x7f0b00af
+			public const int status_bar_latest_event_content = 2131427503;
 			
 			// aapt resource value: 0x7f0b0041
 			public const int submenuarrow = 2131427393;
@@ -3952,11 +3949,11 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b000b
 			public const int tabMode = 2131427339;
 			
-			// aapt resource value: 0x7f0b00c0
-			public const int text = 2131427520;
+			// aapt resource value: 0x7f0b00bf
+			public const int text = 2131427519;
 			
-			// aapt resource value: 0x7f0b00be
-			public const int text2 = 2131427518;
+			// aapt resource value: 0x7f0b00bd
+			public const int text2 = 2131427517;
 			
 			// aapt resource value: 0x7f0b0035
 			public const int textSpacerNoButtons = 2131427381;
@@ -3964,14 +3961,14 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b0034
 			public const int textSpacerNoTitle = 2131427380;
 			
-			// aapt resource value: 0x7f0b0062
-			public const int thanksButton = 2131427426;
+			// aapt resource value: 0x7f0b0061
+			public const int thanksButton = 2131427425;
 			
-			// aapt resource value: 0x7f0b0065
-			public const int thanksTextView = 2131427429;
+			// aapt resource value: 0x7f0b0064
+			public const int thanksTextView = 2131427428;
 			
-			// aapt resource value: 0x7f0b00b6
-			public const int time = 2131427510;
+			// aapt resource value: 0x7f0b00b5
+			public const int time = 2131427509;
 			
 			// aapt resource value: 0x7f0b002d
 			public const int title = 2131427373;
@@ -3985,8 +3982,8 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b0023
 			public const int top = 2131427363;
 			
-			// aapt resource value: 0x7f0b0066
-			public const int topButtonsLayout = 2131427430;
+			// aapt resource value: 0x7f0b0065
+			public const int topButtonsLayout = 2131427429;
 			
 			// aapt resource value: 0x7f0b0039
 			public const int topPanel = 2131427385;
@@ -3997,167 +3994,167 @@ namespace FPOW.Droid
 			// aapt resource value: 0x7f0b0012
 			public const int useLogo = 2131427346;
 			
-			// aapt resource value: 0x7f0b0098
-			public const int variant10Button = 2131427480;
-			
 			// aapt resource value: 0x7f0b0097
-			public const int variant10Layout = 2131427479;
-			
-			// aapt resource value: 0x7f0b009a
-			public const int variant11Button = 2131427482;
-			
-			// aapt resource value: 0x7f0b0099
-			public const int variant11Layout = 2131427481;
-			
-			// aapt resource value: 0x7f0b009c
-			public const int variant12Button = 2131427484;
-			
-			// aapt resource value: 0x7f0b009b
-			public const int variant12Layout = 2131427483;
-			
-			// aapt resource value: 0x7f0b009e
-			public const int variant13Button = 2131427486;
-			
-			// aapt resource value: 0x7f0b009d
-			public const int variant13Layout = 2131427485;
-			
-			// aapt resource value: 0x7f0b00a0
-			public const int variant14Button = 2131427488;
-			
-			// aapt resource value: 0x7f0b009f
-			public const int variant14Layout = 2131427487;
-			
-			// aapt resource value: 0x7f0b00a2
-			public const int variant15Button = 2131427490;
-			
-			// aapt resource value: 0x7f0b00a1
-			public const int variant15Layout = 2131427489;
-			
-			// aapt resource value: 0x7f0b00a4
-			public const int variant16Button = 2131427492;
-			
-			// aapt resource value: 0x7f0b00a3
-			public const int variant16Layout = 2131427491;
-			
-			// aapt resource value: 0x7f0b0086
-			public const int variant1Button = 2131427462;
-			
-			// aapt resource value: 0x7f0b0085
-			public const int variant1Layout = 2131427461;
-			
-			// aapt resource value: 0x7f0b0088
-			public const int variant2Button = 2131427464;
-			
-			// aapt resource value: 0x7f0b0087
-			public const int variant2Layout = 2131427463;
-			
-			// aapt resource value: 0x7f0b008a
-			public const int variant3Button = 2131427466;
-			
-			// aapt resource value: 0x7f0b0089
-			public const int variant3Layout = 2131427465;
-			
-			// aapt resource value: 0x7f0b008c
-			public const int variant4Button = 2131427468;
-			
-			// aapt resource value: 0x7f0b008b
-			public const int variant4Layout = 2131427467;
-			
-			// aapt resource value: 0x7f0b008e
-			public const int variant5Button = 2131427470;
-			
-			// aapt resource value: 0x7f0b008d
-			public const int variant5Layout = 2131427469;
-			
-			// aapt resource value: 0x7f0b0090
-			public const int variant6Button = 2131427472;
-			
-			// aapt resource value: 0x7f0b008f
-			public const int variant6Layout = 2131427471;
-			
-			// aapt resource value: 0x7f0b0092
-			public const int variant7Button = 2131427474;
-			
-			// aapt resource value: 0x7f0b0091
-			public const int variant7Layout = 2131427473;
-			
-			// aapt resource value: 0x7f0b0094
-			public const int variant8Button = 2131427476;
-			
-			// aapt resource value: 0x7f0b0093
-			public const int variant8Layout = 2131427475;
+			public const int variant10Button = 2131427479;
 			
 			// aapt resource value: 0x7f0b0096
-			public const int variant9Button = 2131427478;
+			public const int variant10Layout = 2131427478;
+			
+			// aapt resource value: 0x7f0b0099
+			public const int variant11Button = 2131427481;
+			
+			// aapt resource value: 0x7f0b0098
+			public const int variant11Layout = 2131427480;
+			
+			// aapt resource value: 0x7f0b009b
+			public const int variant12Button = 2131427483;
+			
+			// aapt resource value: 0x7f0b009a
+			public const int variant12Layout = 2131427482;
+			
+			// aapt resource value: 0x7f0b009d
+			public const int variant13Button = 2131427485;
+			
+			// aapt resource value: 0x7f0b009c
+			public const int variant13Layout = 2131427484;
+			
+			// aapt resource value: 0x7f0b009f
+			public const int variant14Button = 2131427487;
+			
+			// aapt resource value: 0x7f0b009e
+			public const int variant14Layout = 2131427486;
+			
+			// aapt resource value: 0x7f0b00a1
+			public const int variant15Button = 2131427489;
+			
+			// aapt resource value: 0x7f0b00a0
+			public const int variant15Layout = 2131427488;
+			
+			// aapt resource value: 0x7f0b00a3
+			public const int variant16Button = 2131427491;
+			
+			// aapt resource value: 0x7f0b00a2
+			public const int variant16Layout = 2131427490;
+			
+			// aapt resource value: 0x7f0b0085
+			public const int variant1Button = 2131427461;
+			
+			// aapt resource value: 0x7f0b0084
+			public const int variant1Layout = 2131427460;
+			
+			// aapt resource value: 0x7f0b0087
+			public const int variant2Button = 2131427463;
+			
+			// aapt resource value: 0x7f0b0086
+			public const int variant2Layout = 2131427462;
+			
+			// aapt resource value: 0x7f0b0089
+			public const int variant3Button = 2131427465;
+			
+			// aapt resource value: 0x7f0b0088
+			public const int variant3Layout = 2131427464;
+			
+			// aapt resource value: 0x7f0b008b
+			public const int variant4Button = 2131427467;
+			
+			// aapt resource value: 0x7f0b008a
+			public const int variant4Layout = 2131427466;
+			
+			// aapt resource value: 0x7f0b008d
+			public const int variant5Button = 2131427469;
+			
+			// aapt resource value: 0x7f0b008c
+			public const int variant5Layout = 2131427468;
+			
+			// aapt resource value: 0x7f0b008f
+			public const int variant6Button = 2131427471;
+			
+			// aapt resource value: 0x7f0b008e
+			public const int variant6Layout = 2131427470;
+			
+			// aapt resource value: 0x7f0b0091
+			public const int variant7Button = 2131427473;
+			
+			// aapt resource value: 0x7f0b0090
+			public const int variant7Layout = 2131427472;
+			
+			// aapt resource value: 0x7f0b0093
+			public const int variant8Button = 2131427475;
+			
+			// aapt resource value: 0x7f0b0092
+			public const int variant8Layout = 2131427474;
 			
 			// aapt resource value: 0x7f0b0095
-			public const int variant9Layout = 2131427477;
+			public const int variant9Button = 2131427477;
+			
+			// aapt resource value: 0x7f0b0094
+			public const int variant9Layout = 2131427476;
 			
 			// aapt resource value: 0x7f0b0021
 			public const int withText = 2131427361;
 			
-			// aapt resource value: 0x7f0b0064
-			public const int word = 2131427428;
-			
-			// aapt resource value: 0x7f0b0072
-			public const int word1button = 2131427442;
+			// aapt resource value: 0x7f0b0063
+			public const int word = 2131427427;
 			
 			// aapt resource value: 0x7f0b0071
-			public const int word1layout = 2131427441;
+			public const int word1button = 2131427441;
 			
-			// aapt resource value: 0x7f0b0074
-			public const int word2button = 2131427444;
+			// aapt resource value: 0x7f0b0070
+			public const int word1layout = 2131427440;
 			
 			// aapt resource value: 0x7f0b0073
-			public const int word2layout = 2131427443;
+			public const int word2button = 2131427443;
 			
-			// aapt resource value: 0x7f0b0076
-			public const int word3button = 2131427446;
+			// aapt resource value: 0x7f0b0072
+			public const int word2layout = 2131427442;
 			
 			// aapt resource value: 0x7f0b0075
-			public const int word3layout = 2131427445;
+			public const int word3button = 2131427445;
 			
-			// aapt resource value: 0x7f0b0078
-			public const int word4button = 2131427448;
+			// aapt resource value: 0x7f0b0074
+			public const int word3layout = 2131427444;
 			
 			// aapt resource value: 0x7f0b0077
-			public const int word4layout = 2131427447;
+			public const int word4button = 2131427447;
 			
-			// aapt resource value: 0x7f0b007a
-			public const int word5button = 2131427450;
+			// aapt resource value: 0x7f0b0076
+			public const int word4layout = 2131427446;
 			
 			// aapt resource value: 0x7f0b0079
-			public const int word5layout = 2131427449;
+			public const int word5button = 2131427449;
 			
-			// aapt resource value: 0x7f0b007c
-			public const int word6button = 2131427452;
+			// aapt resource value: 0x7f0b0078
+			public const int word5layout = 2131427448;
 			
 			// aapt resource value: 0x7f0b007b
-			public const int word6layout = 2131427451;
+			public const int word6button = 2131427451;
 			
-			// aapt resource value: 0x7f0b007e
-			public const int word7button = 2131427454;
+			// aapt resource value: 0x7f0b007a
+			public const int word6layout = 2131427450;
 			
 			// aapt resource value: 0x7f0b007d
-			public const int word7layout = 2131427453;
+			public const int word7button = 2131427453;
 			
-			// aapt resource value: 0x7f0b0080
-			public const int word8button = 2131427456;
+			// aapt resource value: 0x7f0b007c
+			public const int word7layout = 2131427452;
 			
 			// aapt resource value: 0x7f0b007f
-			public const int word8layout = 2131427455;
+			public const int word8button = 2131427455;
 			
-			// aapt resource value: 0x7f0b0082
-			public const int word9button = 2131427458;
+			// aapt resource value: 0x7f0b007e
+			public const int word8layout = 2131427454;
 			
 			// aapt resource value: 0x7f0b0081
-			public const int word9layout = 2131427457;
+			public const int word9button = 2131427457;
 			
-			// aapt resource value: 0x7f0b0084
-			public const int word_remove_button = 2131427460;
+			// aapt resource value: 0x7f0b0080
+			public const int word9layout = 2131427456;
 			
 			// aapt resource value: 0x7f0b0083
-			public const int word_remove_layout = 2131427459;
+			public const int word_remove_button = 2131427459;
+			
+			// aapt resource value: 0x7f0b0082
+			public const int word_remove_layout = 2131427458;
 			
 			// aapt resource value: 0x7f0b0019
 			public const int wrap_content = 2131427353;
